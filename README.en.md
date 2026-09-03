@@ -2,16 +2,24 @@
 
 [中文](README.md) · [MIT License](LICENSE)
 
-Taiyi Shuji is a Traditional Chinese Medicine (TCM) analysis Skill for personal
-agent hosts. It keeps classical interpretation, formula analysis, case reasoning,
-same-case follow-up, and a lightweight personal case record on one verifiable
-mainline, with explicit source, result-identity, and failure boundaries.
+Taiyi Shuji is a Traditional Chinese Medicine (TCM) analysis Skill designed and
+validated primarily for Codex. It keeps classical interpretation, formula
+analysis, case reasoning, same-case follow-up, and a lightweight personal case
+record on one verifiable mainline, with explicit source, result-identity, and
+failure boundaries.
 
 The project uses the model, native subagents, signed-in account, and usage quota
 already provided by hosts such as Codex. It does not require a separate model API.
 Model knowledge and TCM reasoning remain primary. The local classics service only
 supplies short, contiguous passages when a direct quotation, attribution,
 provenance boundary, or counterexample needs verification.
+
+**Compatibility status:** development and runtime acceptance have been completed
+only on Codex. Other agent hosts have not been compatibility-tested. Pure-image
+reports depend in particular on a Codex environment that provides image
+generation, localized editing, and original-resolution inspection. Core text
+analysis can still run without those capabilities, but the same pure-image
+production workflow must not be claimed.
 
 > This project is for research and personal study of TCM classics and formulas.
 > It is not a medical device and does not provide a diagnosis or prescription
@@ -85,16 +93,18 @@ synthesis. There is no fixed multi-agent pipeline or voting system.
 
 ## Runtime requirements
 
-- Codex or another host that supports Agent Skills, file access, and terminal execution;
+- Codex, the primary and only agent host currently covered by compatibility acceptance;
 - one isolated native subagent for red-team review;
 - Python 3.10 or later;
 - `jsonschema>=4.23,<5`;
 - macOS or Linux. Windows users should use WSL; native Windows has not been separately validated;
-- H5 output uses repository scripts only. Pure-image reports additionally require image-generation capability from the host.
+- H5 output uses repository scripts only. Pure-image reports require a Codex environment with image generation, localized editing, and original-image inspection.
 
 No standalone model API is required. If the host cannot create an isolated
 subagent, formula, case, and follow-up tasks must not claim that formal red-team
-review was completed.
+review was completed. Other agents may expose similar Skill, file, terminal, or
+subagent features, but their installation, orchestration, script execution,
+result commit, and image-generation compatibility have not been tested here.
 
 ## Installation
 
