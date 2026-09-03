@@ -31,6 +31,7 @@ REQUIRED_FILES = {
     "ARCHITECTURE.md",
     "requirements.txt",
     "kb/README.md",
+    "kb/manifest.json",
     "spec/README.md",
     "spec/MACHINE_CONTRACT.md",
     "spec/PATIENT_RECORD.md",
@@ -478,9 +479,7 @@ def main() -> int:
     errors: list[str] = []
     check_layout(errors)
     check_utf8(errors)
-    has_local_corpus = (KB / "manifest.json").is_file()
-    if has_local_corpus:
-        check_manifest(errors)
+    check_manifest(errors)
     check_evidence_assets(errors)
     check_analysis_contract(errors)
     check_skill_package(errors)
@@ -488,15 +487,13 @@ def main() -> int:
     check_links(errors)
 
     if not errors:
-        if has_local_corpus:
-            run_command([sys.executable, "-B", "tools/retrieval.py", "validate"], errors)
-            run_command([sys.executable, "-B", "tools/test_retrieval.py"], errors)
-            run_command([sys.executable, "-B", "tools/tangye.py", "validate"], errors)
-            run_command([sys.executable, "-B", "tools/test_analysis_contract.py"], errors)
+        run_command([sys.executable, "-B", "tools/retrieval.py", "validate"], errors)
+        run_command([sys.executable, "-B", "tools/test_retrieval.py"], errors)
+        run_command([sys.executable, "-B", "tools/tangye.py", "validate"], errors)
+        run_command([sys.executable, "-B", "tools/test_analysis_contract.py"], errors)
         run_command([sys.executable, "-B", "tools/test_role_packet.py"], errors)
         run_command([sys.executable, "-B", "tools/test_skill_commit.py"], errors)
-        if has_local_corpus:
-            run_command([sys.executable, "-B", "tools/test_classic_skill.py"], errors)
+        run_command([sys.executable, "-B", "tools/test_classic_skill.py"], errors)
         run_command([sys.executable, "-B", "tools/test_formula_skill.py"], errors)
         run_command([sys.executable, "-B", "tools/test_case_skill.py"], errors)
         run_command([sys.executable, "-B", "tools/test_case_state.py"], errors)
@@ -508,8 +505,7 @@ def main() -> int:
         )
         run_command([sys.executable, "-B", "tools/test_h5.py"], errors)
         run_command([sys.executable, "-B", "tools/test_presentation_projection.py"], errors)
-        if has_local_corpus:
-            run_command([sys.executable, "-B", "tools/test_overall_b2_acceptance.py"], errors)
+        run_command([sys.executable, "-B", "tools/test_overall_b2_acceptance.py"], errors)
 
     if errors:
         print("FAILED: active pre-Skill workspace", file=sys.stderr)
@@ -517,11 +513,10 @@ def main() -> int:
             print(f"- {error}", file=sys.stderr)
         return 1
 
-    corpus_status = "local evidence corpus validated" if has_local_corpus else "local evidence corpus not installed"
     print(
         "PASS: public source tree, machine contract, role transport, optional "
         "read-only H5, patient record, and simple case state are valid; "
-        + corpus_status
+        "bundled processed evidence corpus validated"
     )
     return 0
 

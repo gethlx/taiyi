@@ -1,0 +1,443 @@
+{
+  "schema_version": "1.1",
+  "rule_set_id": "tangye-graph-textual-grammar-v1",
+  "title": "汤液经法图文字规则",
+  "status": "current",
+  "updated_at": "2026-07-21",
+  "primary_objective": "把汤液经法图的空间关系重述为可复述、可证伪的文字规则，并用经方正例与反向对照纠错",
+  "integration_boundary": "辨证立法后参与具体组方、加减和反向审计；不独立承担从自由症状到病机的辨定，药味、剂量、炮制与煎服继续结合仲景法度、本草属性和当前事实完成",
+  "authority_order": [
+    "PDF原图及其相邻原文",
+    "辅行诀五脏条文与二十五味表",
+    "伤寒金匮方证正例和阴性对照",
+    "神农本草经及本草经集注的平行属性约束",
+    "现代研究释读"
+  ],
+  "evidence_levels": {
+    "D": "原图或相邻原文直接事实",
+    "I": "由图文对读得到的最小释义",
+    "V": "经方例证支持、限制或反驳的结果",
+    "B": "原文边界不足以支持独立执行，固定为不自动触发或返回上层辨证"
+  },
+  "sources": {
+    "graph_pdf": {
+      "path": "refs/gem/05_辅行诀.pdf",
+      "page": 17
+    },
+    "fuxingjue": {
+      "path": "kb/texts/05_辅行诀.md",
+      "work_id": "T05-FXJ-WS"
+    },
+    "jingfang": {
+      "path": "kb/texts/04_伤寒杂病论.md",
+      "work_id": "T04-GL",
+      "version_boundary": "桂林古本系统电子转录，不等同通行宋本"
+    },
+    "shennong_bencao": {
+      "path": "kb/texts/06A_神农本草经.md",
+      "work_id": "T06-SN",
+      "version_boundary": "孙星衍孙冯翼清代辑佚本系统"
+    },
+    "graph_data": "kb/assets/辅行诀/汤液图.json"
+  },
+  "direct_evidence": [
+    {
+      "id": "D01",
+      "source": "fuxingjue",
+      "contains": "肝德在散。故经云：以辛补之，以酸泻之。肝苦急，急食甘以缓之"
+    },
+    {
+      "id": "D02",
+      "source": "fuxingjue",
+      "contains": "脾德在缓。故《经》云：以甘补之，辛泻之；脾苦湿，急食苦以燥之"
+    },
+    {
+      "id": "D03",
+      "source": "fuxingjue",
+      "contains": "五味之变，不可胜数。今者约列二十五种，以明五行互含之迹，以明五味变化之用"
+    },
+    {
+      "id": "D04",
+      "source": "fuxingjue",
+      "contains": "主于补、泻者为君；数量同于君而非主，故为臣；从于佐监者，为佐、使"
+    },
+    {
+      "id": "D05",
+      "source": "fuxingjue",
+      "contains": "此图乃《汤液经法》尽要之妙"
+    },
+    {
+      "id": "D06",
+      "source": "fuxingjue",
+      "contains": "阳\n\n进\n\n为\n\n补\n\n其\n\n数\n\n七"
+    },
+    {
+      "id": "D07",
+      "source": "fuxingjue",
+      "contains": "外感天行，经方之药，有二旦、六神大小等汤"
+    },
+    {
+      "id": "D08",
+      "source": "shennong_bencao",
+      "anchor": "t06-sn-p00368",
+      "contains": "欲疗病，先察其原，先候病机"
+    },
+    {
+      "id": "D09",
+      "source": "shennong_bencao",
+      "anchor": "t06-sn-p00368",
+      "contains": "药有酸、咸、甘、苦、辛五味，又有寒、热、温、凉四气"
+    }
+  ],
+  "organ_relations": [
+    {"organ": "肝", "element": "木", "use_tonify": "辛", "body_drain": "酸", "transform": "甘", "suffers": "急", "corrective_action": "缓", "evidence": "D"},
+    {"organ": "心", "element": "火", "use_tonify": "咸", "body_drain": "苦", "transform": "酸", "suffers": "缓", "corrective_action": "收", "evidence": "D"},
+    {"organ": "脾", "element": "土", "use_tonify": "甘", "body_drain": "辛", "transform": "苦", "suffers": "湿", "corrective_action": "燥", "evidence": "D"},
+    {"organ": "肺", "element": "金", "use_tonify": "酸", "body_drain": "咸", "transform": "辛", "suffers": "气上逆", "corrective_action": "散、开腠理以通气", "evidence": "D"},
+    {"organ": "肾", "element": "水", "use_tonify": "苦", "body_drain": "甘", "transform": "咸", "suffers": "燥", "corrective_action": "润、至津液生", "evidence": "D"}
+  ],
+  "pair_space": {
+    "flavors": ["辛", "咸", "甘", "酸", "苦"],
+    "scope": "五味中两个不同味组成的无序味对；不含同味配伍",
+    "expected_unordered_distinct_pair_count": 10,
+    "transformations": [
+      {"inputs": ["辛", "酸"], "output": "甘", "organ": "肝", "reading": "辛酸化甘", "certainty": "D"},
+      {"inputs": ["咸", "苦"], "output": "酸", "organ": "心", "reading": "咸苦化酸", "certainty": "D"},
+      {"inputs": ["甘", "辛"], "output": "苦", "organ": "脾", "reading": "甘辛化苦", "certainty": "D"},
+      {"inputs": ["酸", "咸"], "output": "辛", "organ": "肺", "reading": "酸咸化辛", "certainty": "D"},
+      {"inputs": ["苦", "甘"], "output": "咸", "organ": "肾", "reading": "苦甘化咸", "certainty": "D"}
+    ],
+    "eliminations": [
+      {"inputs": ["辛", "苦"], "effect": "痞", "reading": "辛苦除痞", "certainty": "D"},
+      {"inputs": ["咸", "辛"], "effect": "滞", "reading": "咸辛除滞", "certainty": "D"},
+      {"inputs": ["甘", "咸"], "effect": "燥", "reading": "甘咸除燥", "certainty": "D"},
+      {"inputs": ["酸", "甘"], "effect": null, "reading": "酸甘除□", "certainty": "B", "operational_rule": "不自动指定所除状态"},
+      {"inputs": ["苦", "酸"], "effect": "烦", "reading": "苦酸除烦", "certainty": "D"}
+    ],
+    "invariants": [
+      "五化与五除的味对集合互不相交",
+      "五化与五除之并集等于全部十种异味无序组合",
+      "每一种味在五化中出现两次，在五除中出现两次",
+      "每个五化关系有一个输出味，每个五除关系有一个状态标签"
+    ]
+  },
+  "twenty_five_drug_matrix": [
+    {"flavor": "辛", "primary_element": "木", "master": "桂", "by_nested_element": {"木": "桂", "火": "椒", "土": "姜", "金": "细辛", "水": "附子"}},
+    {"flavor": "咸", "primary_element": "火", "master": "旋覆", "by_nested_element": {"木": "大黄", "火": "旋覆", "土": "泽泻", "金": "厚朴", "水": "硝石"}},
+    {"flavor": "甘", "primary_element": "土", "master": "人参", "by_nested_element": {"木": "甘草", "火": "大枣", "土": "人参", "金": "麦冬", "水": "茯苓"}},
+    {"flavor": "酸", "primary_element": "金", "master": "五味子", "by_nested_element": {"木": "枳实", "火": "豉", "土": "芍药", "金": "五味子", "水": "薯蓣"}},
+    {"flavor": "苦", "primary_element": "水", "master": "地黄", "by_nested_element": {"木": "黄芩", "火": "黄连", "土": "白术", "金": "竹叶", "水": "地黄"}}
+  ],
+  "formula_roles": {
+    "basis": "current_formula_task_and_quantity",
+    "君": "主于当前补或泻任务",
+    "臣": "数量同于君而非当前主导",
+    "佐使": "从于协助或监制",
+    "must_not_merge_with": "神农本草经上中下三品的君臣佐使名位"
+  },
+  "direction_and_number": [
+    {"direction": "左", "movement": "阳进", "operation": "补", "number": 7, "number_symbolism": "火数", "certainty": "D", "operational_scope": "辅行诀大补结构有相应；通用计数法不成立"},
+    {"direction": "右", "movement": "阴退", "operation": "泻", "number": 6, "number_symbolism": "水数", "certainty": "D", "operational_scope": "辅行诀大泻结构有相应；通用计数法不成立", "textual_note": "范抄本原图误作阴进，据传承集校作阴退"}
+  ],
+  "textual_rules": [
+    {
+      "id": "TG-01",
+      "claim": "图提供关系坐标，不提供从自由症状自动得到脏腑诊断的完整算法",
+      "evidence": ["D01", "D02", "D08"],
+      "status": "I",
+      "falsifier": "原图或相邻原文出现完整、无外部前提的症状到脏腑映射"
+    },
+    {
+      "id": "TG-02",
+      "claim": "用味对应补，体味对应泻，化味对应本脏所苦状态的纠偏；三者相连而不等同",
+      "evidence": ["D01", "D02", "D05"],
+      "status": "I",
+      "falsifier": "任一脏区图文对读无法与其补、泻、急食条文逐项对应"
+    },
+    {
+      "id": "TG-03",
+      "claim": "化是两输入味指向第三味的功能关系，不强制方中另有输出味药物",
+      "evidence": ["D05"],
+      "status": "I+V",
+      "falsifier": "原文明确规定化味只能由实际第三味药承担，且所有可靠方例均遵守"
+    },
+    {
+      "id": "TG-04",
+      "claim": "除是味对与方证共同约束的条件关系，味对共现不是充分条件",
+      "evidence": ["D05"],
+      "status": "I+V",
+      "falsifier": "同一除味对在可靠方例中无条件、无反例地总与对应状态同现"
+    },
+    {
+      "id": "TG-05",
+      "claim": "五化和五除把全部十种异味无序组合完整、互斥地分为两类",
+      "evidence": ["D05"],
+      "status": "D+I",
+      "falsifier": "原图存在重复味对、遗漏异味对或同一味对兼属化与除"
+    },
+    {
+      "id": "TG-06",
+      "claim": "多味方可以同时包含多条化与除关系，主次由方证、用量、制法和方内角色决定",
+      "evidence": ["D04"],
+      "status": "I+V",
+      "falsifier": "原文明确规定每方只容许一个味对关系或只按味对数量定主次"
+    },
+    {
+      "id": "TG-07",
+      "claim": "经法味位、五行互含位和本草性味是不同字段，来源冲突时不得覆盖合并",
+      "evidence": ["D03", "D09"],
+      "status": "I",
+      "falsifier": "原文明确宣称二十五味表就是所有本草来源的唯一药味校订表"
+    },
+    {
+      "id": "TG-08",
+      "claim": "七与六可解释原图进退及辅行诀大补大泻局部结构，不能作为一般经方的通用味数分类器",
+      "evidence": ["D06"],
+      "status": "D+I+V",
+      "falsifier": "任意来源可靠的七味方均为补、六味方均为泻，且不存在反例"
+    },
+    {
+      "id": "TG-09",
+      "claim": "图式可以进入经方检验，但结构相容不能单独推出脏腑归类或作者原意",
+      "evidence": ["D07"],
+      "status": "I+V",
+      "falsifier": "图后文本把二旦六神和张仲景体系明确排除在经法关系之外"
+    },
+    {
+      "id": "TG-10",
+      "claim": "神农本草经总纲对图式增加四气、毒性、制法、剂型和七情等约束，但不同来源的五味补泻表不得强行合并",
+      "evidence": ["D08", "D09"],
+      "status": "D+I",
+      "falsifier": "两部原文明确声明其味位、语义层级和配属完全同一"
+    }
+  ],
+  "validation_cases": [
+    {
+      "case_id": "JF-01",
+      "name": "桂枝汤",
+      "formula_anchor": "t04-gl-s0107",
+      "indication_anchors": ["t04-gl-p00506"],
+      "composition_anchors": ["t04-gl-p00507"],
+      "mapped_ingredients": [
+        {"herb": "桂枝", "matrix_token": "桂", "flavor": "辛"},
+        {"herb": "芍药", "matrix_token": "芍药", "flavor": "酸"},
+        {"herb": "甘草", "matrix_token": "甘草", "flavor": "甘"},
+        {"herb": "生姜", "matrix_token": "姜", "flavor": "辛"},
+        {"herb": "大枣", "matrix_token": "大枣", "flavor": "甘"}
+      ],
+      "tests": [
+        {"rule_id": "TG-03", "result": "supports", "reason": "辛酸甘三联完整"},
+        {"rule_id": "TG-09", "result": "supports", "reason": "与辅行诀小阳旦汤同五味药群，但剂量不全同"}
+      ]
+    },
+    {
+      "case_id": "JF-02",
+      "name": "理中汤",
+      "formula_anchor": "t04-gl-s0308",
+      "indication_anchors": ["t04-gl-p01367"],
+      "composition_anchors": ["t04-gl-p01368"],
+      "mapped_ingredients": [
+        {"herb": "人参", "matrix_token": "人参", "flavor": "甘"},
+        {"herb": "白术", "matrix_token": "白术", "flavor": "苦"},
+        {"herb": "甘草", "matrix_token": "甘草", "flavor": "甘"},
+        {"herb": "干姜", "matrix_token": "姜", "flavor": "辛"}
+      ],
+      "tests": [
+        {"rule_id": "TG-03", "result": "supports", "reason": "甘辛苦三联完整，与辅行诀小补脾汤同药同量"},
+        {"rule_id": "TG-04", "result": "negative_control", "reason": "辛苦同现，但本条方证为霍乱呕吐下利而非痞"},
+        {"rule_id": "TG-09", "result": "supports", "reason": "经法规则方与仲景方存在直接文本桥梁"}
+      ]
+    },
+    {
+      "case_id": "JF-03",
+      "name": "半夏泻心汤",
+      "formula_anchor": "t04-gl-s0180",
+      "indication_anchors": ["t04-gl-p00816"],
+      "composition_anchors": ["t04-gl-p00818"],
+      "mapped_ingredients": [
+        {"herb": "黄芩", "matrix_token": "黄芩", "flavor": "苦"},
+        {"herb": "干姜", "matrix_token": "姜", "flavor": "辛"},
+        {"herb": "人参", "matrix_token": "人参", "flavor": "甘"},
+        {"herb": "甘草", "matrix_token": "甘草", "flavor": "甘"},
+        {"herb": "黄连", "matrix_token": "黄连", "flavor": "苦"},
+        {"herb": "大枣", "matrix_token": "大枣", "flavor": "甘"}
+      ],
+      "tests": [
+        {"rule_id": "TG-04", "result": "supports", "reason": "辛苦结构与心下痞明文同现"},
+        {"rule_id": "TG-08", "result": "rejects_overextension", "reason": "七味且名泻心，否定凡七味皆补的通用解释"}
+      ],
+      "dependency_group": "泻心汤方族"
+    },
+    {
+      "case_id": "JF-04",
+      "name": "生姜泻心汤",
+      "formula_anchor": "t04-gl-s0185",
+      "indication_anchors": ["t04-gl-p00835"],
+      "composition_anchors": ["t04-gl-p00836"],
+      "mapped_ingredients": [
+        {"herb": "生姜", "matrix_token": "姜", "flavor": "辛"},
+        {"herb": "干姜", "matrix_token": "姜", "flavor": "辛"},
+        {"herb": "黄芩", "matrix_token": "黄芩", "flavor": "苦"},
+        {"herb": "黄连", "matrix_token": "黄连", "flavor": "苦"}
+      ],
+      "tests": [
+        {"rule_id": "TG-04", "result": "supports", "reason": "辛苦结构与心下痞鞕同现；属同方族复现"}
+      ],
+      "dependency_group": "泻心汤方族"
+    },
+    {
+      "case_id": "JF-05",
+      "name": "甘草泻心汤",
+      "formula_anchor": "t04-gl-s0186",
+      "indication_anchors": ["t04-gl-p00838"],
+      "composition_anchors": ["t04-gl-p00839"],
+      "mapped_ingredients": [
+        {"herb": "甘草", "matrix_token": "甘草", "flavor": "甘"},
+        {"herb": "黄芩", "matrix_token": "黄芩", "flavor": "苦"},
+        {"herb": "干姜", "matrix_token": "姜", "flavor": "辛"},
+        {"herb": "黄连", "matrix_token": "黄连", "flavor": "苦"}
+      ],
+      "tests": [
+        {"rule_id": "TG-04", "result": "supports", "reason": "辛苦结构与痞益甚、心下痞鞕同现；属同方族复现"}
+      ],
+      "dependency_group": "泻心汤方族"
+    },
+    {
+      "case_id": "JF-06",
+      "name": "黄连汤",
+      "formula_anchor": "t04-gl-s0194",
+      "indication_anchors": ["t04-gl-p00868"],
+      "composition_anchors": ["t04-gl-p00869"],
+      "mapped_ingredients": [
+        {"herb": "黄连", "matrix_token": "黄连", "flavor": "苦"},
+        {"herb": "甘草", "matrix_token": "甘草", "flavor": "甘"},
+        {"herb": "干姜", "matrix_token": "姜", "flavor": "辛"},
+        {"herb": "桂枝", "matrix_token": "桂", "flavor": "辛"},
+        {"herb": "人参", "matrix_token": "人参", "flavor": "甘"},
+        {"herb": "大枣", "matrix_token": "大枣", "flavor": "甘"}
+      ],
+      "tests": [
+        {"rule_id": "TG-04", "result": "negative_control", "reason": "辛苦同现而本条主证为胸热、胃邪、腹痛、欲呕，不以痞为主"}
+      ]
+    },
+    {
+      "case_id": "JF-07",
+      "name": "黄连阿胶汤",
+      "formula_anchor": "t04-gl-s0251",
+      "indication_anchors": ["t04-gl-p01145"],
+      "composition_anchors": ["t04-gl-p01146"],
+      "mapped_ingredients": [
+        {"herb": "黄连", "matrix_token": "黄连", "flavor": "苦"},
+        {"herb": "黄芩", "matrix_token": "黄芩", "flavor": "苦"},
+        {"herb": "芍药", "matrix_token": "芍药", "flavor": "酸"}
+      ],
+      "tests": [
+        {"rule_id": "TG-04", "result": "supports", "reason": "苦酸结构与心中烦、不得卧明文同现"}
+      ]
+    },
+    {
+      "case_id": "JF-08",
+      "name": "芍药甘草汤",
+      "formula_anchor": "t04-gl-s0117",
+      "indication_anchors": ["t04-gl-p00543"],
+      "composition_anchors": ["t04-gl-p00546"],
+      "mapped_ingredients": [
+        {"herb": "芍药", "matrix_token": "芍药", "flavor": "酸"},
+        {"herb": "甘草", "matrix_token": "甘草", "flavor": "甘"}
+      ],
+      "tests": [
+        {"rule_id": "TG-04", "result": "boundary_signal", "reason": "酸甘与脚挛急、脚即伸形成语义对照，但原图转录为缺字，本关系不自动指定所除状态"}
+      ]
+    },
+    {
+      "case_id": "JF-09",
+      "name": "猪苓汤",
+      "formula_anchor": "t04-gl-s0205",
+      "indication_anchors": ["t04-gl-p00939", "t04-gl-p00942"],
+      "composition_anchors": ["t04-gl-p00940"],
+      "mapped_ingredients": [
+        {"herb": "茯苓", "matrix_token": "茯苓", "flavor": "甘"},
+        {"herb": "泽泻", "matrix_token": "泽泻", "flavor": "咸"}
+      ],
+      "tests": [
+        {"rule_id": "TG-04", "result": "supports_with_limit", "reason": "甘咸与渴、小便不利相应，但汗多胃中燥为明确禁用边界"}
+      ]
+    },
+    {
+      "case_id": "JF-10",
+      "name": "桃仁承气汤",
+      "formula_anchor": "t04-gl-s0152",
+      "indication_anchors": ["t04-gl-p00701"],
+      "composition_anchors": ["t04-gl-p00702"],
+      "mapped_ingredients": [
+        {"herb": "大黄", "matrix_token": "大黄", "flavor": "咸"},
+        {"herb": "桂枝", "matrix_token": "桂", "flavor": "辛"},
+        {"herb": "甘草", "matrix_token": "甘草", "flavor": "甘"}
+      ],
+      "tests": [
+        {"rule_id": "TG-04", "result": "supports", "reason": "咸辛与热结、少腹急结、瘀血相应，支持除滞的宽泛方向"}
+      ]
+    },
+    {
+      "case_id": "JF-11",
+      "name": "真武汤",
+      "formula_anchor": "t04-gl-s0263",
+      "indication_anchors": ["t04-gl-p01184"],
+      "composition_anchors": ["t04-gl-p01185"],
+      "mapped_ingredients": [
+        {"herb": "茯苓", "matrix_token": "茯苓", "flavor": "甘"},
+        {"herb": "芍药", "matrix_token": "芍药", "flavor": "酸"},
+        {"herb": "白术", "matrix_token": "白术", "flavor": "苦"},
+        {"herb": "生姜", "matrix_token": "姜", "flavor": "辛"},
+        {"herb": "附子", "matrix_token": "附子", "flavor": "辛"}
+      ],
+      "tests": [
+        {"rule_id": "TG-03", "result": "indirect_support", "reason": "苦甘输入俱在、经法咸味药不在，而方证明言水气；支持功能指向而非强制第三味药"}
+      ]
+    },
+    {
+      "case_id": "JF-12",
+      "name": "枳实薤白桂枝厚朴括蒌汤",
+      "source_heading_name": "枳实薤白桂枝厚朴括萎汤",
+      "formula_anchor": "t04-gl-s0412",
+      "indication_anchors": ["t04-gl-p01757"],
+      "composition_anchors": ["t04-gl-p01758"],
+      "mapped_ingredients": [
+        {"herb": "枳实", "matrix_token": "枳实", "flavor": "酸"},
+        {"herb": "桂枝", "matrix_token": "桂", "flavor": "辛"},
+        {"herb": "厚朴", "matrix_token": "厚朴", "flavor": "咸"}
+      ],
+      "tests": [
+        {"rule_id": "TG-03", "result": "supports", "reason": "酸咸输入与辛味桂枝同在，形成酸咸化辛三联"},
+        {"rule_id": "TG-06", "result": "supports", "reason": "同方又有咸辛及留气结、痞、满、逆，显示多关系可并存"}
+      ]
+    }
+  ],
+  "validation_summary": {
+    "formula_instance_count": 12,
+    "independent_group_note": "半夏、生姜、甘草三泻心汤属于同一方族，只算重复支持，不算三项独立证明",
+    "core_rule_direct_conflicts": 0,
+    "rejected_overextensions": [
+      "味对共现即自动产生五除功效",
+      "化味必须由方中实际第三味药承担",
+      "任意七味方皆补、任意六味方皆泻"
+    ],
+    "operational_limits": [
+      "酸甘除字保留为原图转录缺字且不自动指定所除状态",
+      "化固定按功能指向运行，不作物质生成解释",
+      "七六数法只用于辅行诀大补大泻结构",
+      "五行互含位只作关系坐标，不单独自动选药",
+      "五除状态词逐方结合方证解释"
+    ]
+  },
+  "operational_boundaries": [
+    {"id": "B-01", "topic": "酸甘除字", "current_rule": "原图转录保留□，不自动指定所除状态"},
+    {"id": "B-02", "topic": "化的运行含义", "current_rule": "固定解释为两种输入味形成的功能指向，不作物质生成解释"},
+    {"id": "B-03", "topic": "七六数法", "current_rule": "只用于辅行诀大补大泻结构，不外推为通用计数算法"},
+    {"id": "B-04", "topic": "互含位选药", "current_rule": "保留双坐标用于关系分析，不单独自动选药"},
+    {"id": "B-05", "topic": "图中主药与方内君药", "current_rule": "分栏保存，分别按图中位置和当前补泻任务判定"},
+    {"id": "B-06", "topic": "左右箭头", "current_rule": "只称左行和右行，不随重绘朝向改称钟向"},
+    {"id": "B-07", "topic": "五除状态词", "current_rule": "逐方保留经典原词并结合方证解释，不建立现代症状字典"},
+    {"id": "B-08", "topic": "同味、多味药与剂量比例", "current_rule": "交由方证、方内角色、本草、用量和制法层共同处理"}
+  ]
+}

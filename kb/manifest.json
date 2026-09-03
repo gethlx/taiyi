@@ -1,0 +1,34 @@
+{
+  "manifest_version": "kb-v1",
+  "updated_at": "2026-07-21",
+  "rule": "Only files listed here may enter retrieval; one complete Markdown per work.",
+  "work_count": 18,
+  "asset_count": 5,
+  "works": [
+    {"work_id":"T01-YI-WS","title":"周易","path":"texts/01_周易.md","sha256":"737f4e547bf475795d2b8a180803d557b00dc6d564af5c41a8fb6d74067dc56a","source":"refs/snap/wiki/T01-YI-WS.json"},
+    {"work_id":"T01-CT-WS","title":"周易参同契","path":"texts/01B_参同契.md","sha256":"93ae256433cbae2cde015570e16f4c8d2081dc9c768a2827f4951e757b3ff1c6","source":"refs/snap/wiki/T01-CT-WS.json"},
+    {"work_id":"T02-SW-WS","title":"黄帝内经素问","path":"texts/02A_素问.md","sha256":"9949f70a3c2b3799a17cae0c422a24cb3cfcfa502b4aec487c6c21dffe0cd87f","source":"refs/snap/wiki/T02-SW-WS.json"},
+    {"work_id":"T02-WJ","title":"外经微言","path":"texts/02B_外经微言.md","sha256":"ddd742558f14b6952a02dbfc1058e983bf6e52f091755d1e0dd5921b265c0c48","source":"refs/gem/02_内经_外经微言.txt"},
+    {"work_id":"T02-LS-WS","title":"黄帝内经灵枢","path":"texts/02C_灵枢.md","sha256":"3b01be674b2e4add23f0eb2939abe93a639a6b92ad9a2e340da035a3cf0600a3","source":"refs/snap/wiki/T02-LS-WS.json"},
+    {"work_id":"T02-TS-WS","title":"黄帝内经太素","path":"texts/02D_太素.md","sha256":"cb1e6ba8f7607fa7502ad6935e2bdd0f2812dd0599dcd880341919f7ba4110c7","source":"refs/snap/wiki/T02-TS-WS.json"},
+    {"work_id":"T02-HT-CT","title":"黄庭内景五脏六腑补泻图","path":"texts/02E_黄庭补泻图.md","sha256":"2d9b4f91217bd569976652f477618c985b0737ca51a749751a2d0e4e5effe649","source":"refs/snap/ctext/T02-HT-CT.json"},
+    {"work_id":"T03-NJ","title":"八十一难经","path":"texts/03A_难经.md","sha256":"3f3e48573dad9b021750336a510d361a411c5e98c944daae97fabaa70a9f41b0","source":"refs/gem/03_难经_类经.txt"},
+    {"work_id":"T03-LJ-WS","title":"类经（四库全书本）","path":"texts/03B_类经.md","sha256":"6f23099a00585e7d641967db5752ea16ed4d2e1eff35b7f2245f28e88f3f03db","source":"refs/snap/wiki/T03-LJ-WS.json"},
+    {"work_id":"T03-ZB-WS","title":"诸病源候论","path":"texts/03C_诸病源候论.md","sha256":"3d3d81c8f8f2565b4ed72d8176724269c6e5c8070a778c54c7da00788e535850","source":"refs/snap/wiki/T03-ZB-WS.json"},
+    {"work_id":"T04-GL","title":"桂林古本伤寒杂病论","path":"texts/04_伤寒杂病论.md","sha256":"f52e772287e6ed8de6563e7c5b406fa2ae3a694b1f8ac45aefd4a3ab68ddd677","source":"refs/gem/04_伤寒杂病论.txt"},
+    {"work_id":"T05-FXJ-WS","title":"辅行诀脏腑用药法要","path":"texts/05_辅行诀.md","sha256":"070590d9693329b7cf1510892935ff66c399c36f426ed6734523abab0b041ce8","source":"refs/snap/wiki/T05-FXJ-WS.json"},
+    {"work_id":"T06-SN","title":"神农本草经（孙星衍孙冯翼辑本）","path":"texts/06A_神农本草经.md","sha256":"661f980ddad5816797fd605794db2764a1195a63dba89287490afa71302d9cd8","source":"refs/gem/06_本草经_集注.txt"},
+    {"work_id":"T06-BC","title":"本草经集注","path":"texts/06B_本草经集注.md","sha256":"8d91def28a4c96866dcee9e0dc2a04c5b6bbd54de0841c0c9e107c1200481139","source":"refs/gem/06_本草经_集注.txt"},
+    {"work_id":"T07-YF","title":"备急千金要方","path":"texts/07A_千金要方.md","sha256":"477b46601e5cd4e5143f3be19418ef34088b874a1718fb2b5bdec1241f558094","source":"refs/gem/07_千金要方_翼方.txt"},
+    {"work_id":"T07-YIF","title":"千金翼方","path":"texts/07B_千金翼方.md","sha256":"63d11702c95e879066a95e454f549202fbcdc2e9aefe45bf922c26a51883c9e2","source":"refs/gem/07_千金要方_翼方.txt"},
+    {"work_id":"T08-WT-JC","title":"外台秘要","path":"texts/08_外台秘要.md","sha256":"9efc785375e8648a8b740cd4e3b4adba0ac77a138063b6f4f35783073c823808","source":"refs/snap/jicheng/T08-WT-JC.json"},
+    {"work_id":"T09-JY-CT","title":"针灸甲乙经","path":"texts/09_针灸甲乙经.md","sha256":"3fcd6434bcad9caa8951115e5f21e782c5d9aa9fe60bc3d641dfa9ea315eeb34","source":"refs/snap/ctext/T09-JY-CT.json"}
+  ],
+  "assets": [
+    {"path":"assets/辅行诀/汤液图.svg","sha256":"5431ee858b44a6475fc7414db1dc1ddc6584e42b16cc09e2d4ea8017d47aa579"},
+    {"path":"assets/辅行诀/汤液图.json","sha256":"4c98e8da0dbb4947a70e83cf1c3378f6a76bec92e2026894811f6ae3d5a32092"},
+    {"path":"assets/辅行诀/汤液图.md","sha256":"e7e06910b95adabc6b70cf9ffa21fe3f4d4825d0e5f4893375130e2cc8c805dd"},
+    {"path":"assets/辅行诀/经法规则.md","sha256":"57e0d9c604090875c0cb284a590474f9992599f9a3158b12dca40e55ca666351","supplement_of":"T05-FXJ-WS","role":"current_textual_rules"},
+    {"path":"assets/辅行诀/经法规则.json","sha256":"b5d3b63a4013fbf992696e694139e80065d13f23a98472fec3224fa1dfb9d2b4","supplement_of":"T05-FXJ-WS","role":"machine_rules_and_jingfang_tests"}
+  ]
+}

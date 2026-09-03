@@ -1,0 +1,46 @@
+{
+  "schema_version": "2.0",
+  "title": "汤液经法图",
+  "work": "辅行诀脏腑用药法要",
+  "artifact_role": "原图关系的结构化转录与校订；是经法文字规则的直接图形底座，但不是处方生成器",
+  "source": {
+    "primary_local_file": "refs/gem/05_辅行诀.pdf",
+    "primary_pdf_page": 17,
+    "comparison_local_file": "kb/texts/05_辅行诀.md",
+    "comparison_url": "https://zh.wikisource.org/zh-hans/輔行訣臟腑用藥法要"
+  },
+  "zang_relations": [
+    {"脏":"肝","五行":"木","用":"辛","体":"酸","化":"甘"},
+    {"脏":"心","五行":"火","用":"咸","体":"苦","化":"酸"},
+    {"脏":"脾","五行":"土","用":"甘","体":"辛","化":"苦"},
+    {"脏":"肺","五行":"金","用":"酸","体":"咸","化":"辛"},
+    {"脏":"肾","五行":"水","用":"苦","体":"甘","化":"咸"}
+  ],
+  "flavor_transformations": [
+    {"inputs":["辛","酸"],"output":"甘","reading":"辛酸化甘"},
+    {"inputs":["咸","苦"],"output":"酸","reading":"咸苦化酸"},
+    {"inputs":["甘","辛"],"output":"苦","reading":"甘辛化苦"},
+    {"inputs":["酸","咸"],"output":"辛","reading":"酸咸化辛"},
+    {"inputs":["苦","甘"],"output":"咸","reading":"苦甘化咸"}
+  ],
+  "elimination_pairs": [
+    {"inputs":["辛","苦"],"effect":"痞","reading":"辛苦除痞","certainty":"transcribed"},
+    {"inputs":["咸","辛"],"effect":"滞","reading":"咸辛除滞","certainty":"transcribed"},
+    {"inputs":["甘","咸"],"effect":"燥","reading":"甘咸除燥","certainty":"transcribed"},
+    {"inputs":["酸","甘"],"effect":null,"reading":"酸甘除□","certainty":"transcribed_blank","operational_rule":"不自动指定所除状态"},
+    {"inputs":["苦","酸"],"effect":"烦","reading":"苦酸除烦","certainty":"transcribed"}
+  ],
+  "direction_rules": [
+    {"方向":"左","进退":"阳进","补泻":"补","数":7,"数所属":"火","operational_scope":"仅用于《辅行诀》大补结构"},
+    {"方向":"右","进退":"阴退","补泻":"泻","数":6,"数所属":"水","operational_scope":"仅用于《辅行诀》大泻结构","textual_note":"范抄本原图误作‘阴进为泻’，据《传承集》校作‘阴退为泻’"}
+  ],
+  "editorial_notes": [
+    "用与补味、体与泻味的对应来自五脏条文和图文对读；这是一项编辑性定位，不是通用处方模板。",
+    "化是体用两味之间的关系标记，不产生一个可额外计数的药味。",
+    "五除是五味两两配伍关系，不属于某一脏的独立字段。",
+    "酸甘所除之字保留为原图转录‘□’，运行时不自动指定所除状态。",
+    "七、六只保存为原图方向与数义，不用作伤寒、金匮或一般方剂的味数分类和生成约束。",
+    "本图先被释读为经法文字规则，再由经方正例和反向对照检验；不得由本图直接选择或替换药物。",
+    "分区颜色、横排文字和版式为重绘时添加，只用于提高可读性。"
+  ]
+}

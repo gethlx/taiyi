@@ -159,28 +159,35 @@ mainline. A plain explanation of an existing committed result does not create a
 new run, turn, or result. Hypothetical formula changes use one copy-on-write
 sandbox and do not modify the formal case.
 
-## Local classics corpus
+## Digital classics knowledge base
 
-The public repository does not redistribute the complete digital classics
-corpus. Source licenses differ, and some digital providers permit only private
-or limited academic use. Direct quotation retrieval requires a Markdown corpus
-and `manifest.json` that the user has the right to use under `kb/`. See
-[`kb/README.md`](kb/README.md) for the directory contract.
+The repository includes the processed knowledge base used by the Skill.
+`kb/manifest.json` binds 18 works to stable identities, processed Markdown paths,
+and SHA-256 digests. `kb/texts/` contains the single runtime copy of each work
+after work-level separation, encoding normalization, structural headings, and
+stable anchors were added. `kb/assets/辅行诀/` contains the structured Tangye
+diagram and Jingfa rule assets. Raw download snapshots and historical merged
+source files are not runtime copies of the knowledge base. See
+[`kb/README.md`](kb/README.md) for the exact layout.
 
-Without a local corpus, the model can still perform general TCM reasoning, but
-unread text must not be presented as a verified direct quotation or attribution.
+These files are required for a complete installation. A missing manifest,
+declared text, or structured asset, or any digest mismatch, stops formal use; it
+must not be reported as a complete installation without the corpus. Retrieval
+still supplies only selected short passages when a direct quotation,
+attribution, authority boundary, counterexample, or decisive boundary must be
+checked. It does not inject chapters or whole works into model context.
 
 ## Tests
 
-Run the public source checks with:
+Run the complete repository checks with:
 
 ```bash
 python3 -B tools/validate.py
 ```
 
-When a complete local corpus is installed, the same command also runs retrieval,
-source readback, Tangye rules, and direct-source tests. They may also be run
-individually:
+The command requires and validates all 18 processed texts and five structured
+assets, then runs source-digest, retrieval readback, Tangye-rule, and direct-source
+tests. A missing knowledge base cannot pass. The checks may also be run individually:
 
 ```bash
 python3 -B tools/retrieval.py validate
@@ -199,7 +206,7 @@ medical quality.
 skill/taiyi-shuji/   Skill entry point, role references, scripts, and presentation assets
 spec/                Role prompts, machine contracts, schemas, and test data
 tools/               Contracts, retrieval, evidence service, and deterministic tests
-kb/                  User-supplied local classics corpus
+kb/                  Required processed classics, manifest, and structured knowledge assets
 docs/images/         Pure-image report examples used by the README
 ```
 
@@ -211,6 +218,7 @@ See [`PRODUCT.md`](PRODUCT.md) for product boundaries,
 ## License
 
 Software, original documentation, and the example images in this repository are
-available under the [MIT License](LICENSE). Third-party materials and local
-classics are not relicensed by the software license. See
+available under the [MIT License](LICENSE). The bundled third-party digital
+classics retain their source and license identities and are not relicensed by
+the software license. See
 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).

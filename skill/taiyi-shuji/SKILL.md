@@ -25,7 +25,8 @@ description: 太乙枢机个人 Agent Skill。用于中医经典原文、概念�
 
 项目根目录从本文件所在仓库自动定位，运行环境应预先满足根目录
 `requirements.txt`；不要在运行中安装依赖。安装时保留 `skill/`、`spec/`、
-`tools/` 和 `kb/` 的仓库相对结构。
+`tools/` 和 `kb/` 的仓库相对结构。`kb/manifest.json` 及其登记正文和资产是运行
+依赖；缺失或校验失败时停止，不降级为无典籍的正式运行。
 
 - 经典解释：[`references/classic-interpretation.md`](references/classic-interpretation.md)
 - 方剂分析：[`references/formula-analysis.md`](references/formula-analysis.md)
