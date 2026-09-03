@@ -1,0 +1,30 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Local execution and personal state
+.workbuddy/
+cases/
+runs/
+
+# Historical implementation and source-material staging
+legacy/
+refs/
+
+# Internal development history and host-specific acceptance artifacts
+spec/acceptance/
+spec/DEV.md
+spec/H5_SKILL_REUSE_PACKAGE.md
+spec/H5_VISUAL_EXPERIENCE_ANALYSIS.md
+spec/PURE_IMAGE_REPORT_GENERATION_CANDIDATE.md
+tools/test_computer_use_artifacts.py
+
+# Local evidence corpus. Source rights differ by provider, so the public
+# repository ships the interface and tests, not the full imported corpus.
+kb/manifest.json
+kb/texts/
+kb/assets/

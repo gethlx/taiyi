@@ -1,0 +1,519 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://taiyi-shuji.local/spec/evidence.schema.json",
+  "title": "太乙枢机阶段 2 证据结果 1.0",
+  "$ref": "#/$defs/EvidenceResult",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "id_list": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/id"
+      },
+      "uniqueItems": true
+    },
+    "EvidenceRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "request_id",
+        "task_id",
+        "origin_stage",
+        "question_text",
+        "target_work_ids",
+        "exact_quote_targets",
+        "topic_hints",
+        "max_evidence"
+      ],
+      "properties": {
+        "request_id": {
+          "$ref": "#/$defs/id"
+        },
+        "task_id": {
+          "$ref": "#/$defs/id"
+        },
+        "origin_stage": {
+          "enum": [
+            "stage_0",
+            "stage_a",
+            "stage_b",
+            "stage_c"
+          ]
+        },
+        "question_text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        },
+        "target_work_ids": {
+          "$ref": "#/$defs/id_list"
+        },
+        "exact_quote_targets": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "uniqueItems": true,
+          "maxItems": 12
+        },
+        "topic_hints": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "uniqueItems": true,
+          "maxItems": 32
+        },
+        "max_evidence": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        }
+      }
+    },
+    "CorpusSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "manifest_path",
+        "manifest_sha256",
+        "source_root",
+        "work_sha256",
+        "snapshot_sha256"
+      ],
+      "properties": {
+        "manifest_path": {
+          "const": "kb/manifest.json"
+        },
+        "manifest_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "source_root": {
+          "const": "kb/texts"
+        },
+        "work_sha256": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "$ref": "#/$defs/sha256"
+          }
+        },
+        "snapshot_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "RouteCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "card_id",
+        "work_id",
+        "title",
+        "evidence_kind",
+        "authority_role",
+        "priority",
+        "candidate_basis",
+        "match_terms",
+        "rank"
+      ],
+      "properties": {
+        "card_id": {
+          "$ref": "#/$defs/id"
+        },
+        "work_id": {
+          "$ref": "#/$defs/id"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_kind": {
+          "enum": [
+            "classic_original",
+            "commentary_reference"
+          ]
+        },
+        "authority_role": {
+          "enum": [
+            "main",
+            "same_layer_reference",
+            "conditional",
+            "annotation"
+          ]
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4
+        },
+        "candidate_basis": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "target_work_id",
+              "title_or_alias",
+              "topic_hint",
+              "question_term",
+              "card_relation",
+              "full_corpus_fallback"
+            ]
+          }
+        },
+        "match_terms": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "rank": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "SourceLocator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "heading_path",
+        "anchor",
+        "start_line",
+        "end_line"
+      ],
+      "properties": {
+        "heading_path": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "anchor": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start_line": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "end_line": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "SourceEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_id",
+        "segment_id",
+        "work_id",
+        "title",
+        "kind",
+        "authority_role",
+        "source_path",
+        "source_identity",
+        "locator",
+        "excerpt",
+        "body_sha256",
+        "excerpt_sha256",
+        "fragment_state",
+        "rechecked_from_source"
+      ],
+      "properties": {
+        "evidence_id": {
+          "$ref": "#/$defs/id"
+        },
+        "segment_id": {
+          "$ref": "#/$defs/id"
+        },
+        "work_id": {
+          "$ref": "#/$defs/id"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "classic_original",
+            "commentary_reference"
+          ]
+        },
+        "authority_role": {
+          "enum": [
+            "main",
+            "same_layer_reference",
+            "conditional",
+            "annotation"
+          ]
+        },
+        "source_path": {
+          "type": "string",
+          "pattern": "^kb/texts/"
+        },
+        "source_identity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locator": {
+          "$ref": "#/$defs/SourceLocator"
+        },
+        "excerpt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "body_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "excerpt_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "fragment_state": {
+          "enum": [
+            "complete",
+            "fragmentary",
+            "variant"
+          ]
+        },
+        "rechecked_from_source": {
+          "const": true
+        }
+      }
+    },
+    "RetrievalAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "assessment_id",
+        "request_id",
+        "target_work_id",
+        "state",
+        "direct_evidence_ids",
+        "related_candidate_evidence_ids",
+        "variant_evidence_ids"
+      ],
+      "properties": {
+        "assessment_id": {
+          "$ref": "#/$defs/id"
+        },
+        "request_id": {
+          "$ref": "#/$defs/id"
+        },
+        "target_work_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "state": {
+          "enum": [
+            "complete",
+            "fragmentary",
+            "not_retrieved",
+            "conflicting"
+          ]
+        },
+        "direct_evidence_ids": {
+          "$ref": "#/$defs/id_list"
+        },
+        "related_candidate_evidence_ids": {
+          "$ref": "#/$defs/id_list"
+        },
+        "variant_evidence_ids": {
+          "$ref": "#/$defs/id_list"
+        }
+      }
+    },
+    "VariantCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_id",
+        "evidence_id",
+        "base_reading",
+        "variant_reading",
+        "status"
+      ],
+      "properties": {
+        "candidate_id": {
+          "$ref": "#/$defs/id"
+        },
+        "evidence_id": {
+          "$ref": "#/$defs/id"
+        },
+        "base_reading": {
+          "type": "string",
+          "minLength": 1
+        },
+        "variant_reading": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "const": "unadjudicated"
+        }
+      }
+    },
+    "CrossWorkCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_id",
+        "evidence_id",
+        "from_target_work_ids",
+        "candidate_basis"
+      ],
+      "properties": {
+        "candidate_id": {
+          "$ref": "#/$defs/id"
+        },
+        "evidence_id": {
+          "$ref": "#/$defs/id"
+        },
+        "from_target_work_ids": {
+          "$ref": "#/$defs/id_list"
+        },
+        "candidate_basis": {
+          "enum": [
+            "exact_quote",
+            "topic_hint",
+            "card_relation"
+          ]
+        }
+      }
+    },
+    "TraceEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trace_id",
+        "phase",
+        "work_ids",
+        "segment_ids",
+        "detail_code"
+      ],
+      "properties": {
+        "trace_id": {
+          "$ref": "#/$defs/id"
+        },
+        "phase": {
+          "enum": [
+            "card_route",
+            "exact_quote_search",
+            "lexical_search",
+            "adjacent_expansion",
+            "cross_work_expansion",
+            "source_readback",
+            "assessment"
+          ]
+        },
+        "work_ids": {
+          "$ref": "#/$defs/id_list"
+        },
+        "segment_ids": {
+          "$ref": "#/$defs/id_list"
+        },
+        "detail_code": {
+          "enum": [
+            "target_work",
+            "card_match",
+            "exact_quote",
+            "search_terms",
+            "same_heading_neighbor",
+            "card_relationship",
+            "corpus_fallback",
+            "checksum_verified",
+            "state_assigned"
+          ]
+        }
+      }
+    },
+    "EvidenceResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "request_id",
+        "task_id",
+        "corpus_snapshot",
+        "route_candidates",
+        "source_evidence",
+        "retrieval_assessments",
+        "variant_candidates",
+        "cross_work_candidates",
+        "retrieval_trace"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1.0"
+        },
+        "request_id": {
+          "$ref": "#/$defs/id"
+        },
+        "task_id": {
+          "$ref": "#/$defs/id"
+        },
+        "corpus_snapshot": {
+          "$ref": "#/$defs/CorpusSnapshot"
+        },
+        "route_candidates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RouteCandidate"
+          }
+        },
+        "source_evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SourceEvidence"
+          }
+        },
+        "retrieval_assessments": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/RetrievalAssessment"
+          }
+        },
+        "variant_candidates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/VariantCandidate"
+          }
+        },
+        "cross_work_candidates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CrossWorkCandidate"
+          }
+        },
+        "retrieval_trace": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TraceEvent"
+          }
+        }
+      }
+    }
+  }
+}

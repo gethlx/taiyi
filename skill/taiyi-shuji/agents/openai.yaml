@@ -1,0 +1,4 @@
+interface:
+  display_name: "太乙枢机"
+  short_description: "经典、方剂、个人病历、病例复察及同源可视化报告"
+  default_prompt: "使用 $taiyi-shuji 记录或分析个人病例、同案复察、方剂与经典；也可从已提交结果生成同源患者向 H5 或纯图片报告。"

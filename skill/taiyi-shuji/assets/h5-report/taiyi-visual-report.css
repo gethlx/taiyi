@@ -1,0 +1,136 @@
+:root {
+  --taiyi-ink: #173e34;
+  --taiyi-ink-soft: #4e5f58;
+  --taiyi-paper: #f4efe2;
+  --taiyi-paper-bright: #fbf7ec;
+  --taiyi-jade: #86a99a;
+  --taiyi-jade-deep: #315f53;
+  --taiyi-jade-soft: #dce8df;
+  --taiyi-ochre: #b78a45;
+  --taiyi-blue: #6f8c98;
+  --taiyi-cinnabar: #9e5c48;
+  --taiyi-line: rgba(105, 91, 61, 0.22);
+  --taiyi-line-strong: rgba(118, 91, 45, 0.45);
+  --taiyi-positive: #4e7c5e;
+  --taiyi-negative: #a6533d;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #ece8de; }
+
+.taiyi-report {
+  width: min(100%, 430px);
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow-x: hidden;
+  background: var(--taiyi-paper) url("./silk-jade-surface.webp") top left / 100% auto repeat-y;
+  color: var(--taiyi-ink);
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+.taiyi-report-content { min-height: 100vh; margin-left: 54px; border-left: 1px solid rgba(159, 119, 48, 0.66); }
+.taiyi-hero { min-height: 234px; padding: max(24px, env(safe-area-inset-top)) 8px 8px; background-position: 54% 44%; background-size: cover; box-shadow: inset 0 -1px var(--taiyi-line-strong); }
+.taiyi-hero-title { margin: 0 -8px; padding: 6px 10px 5px; border-block: 1px solid rgba(120, 94, 48, 0.28); background: rgba(250, 247, 236, 0.88); box-shadow: 0 5px 14px rgba(42, 56, 46, 0.08); backdrop-filter: blur(5px); text-align: center; }
+.taiyi-hero h1 { margin: 0; font-family: "Noto Serif SC", "Songti SC", serif; font-size: 21px; font-weight: 750; line-height: 1.38; letter-spacing: -0.025em; text-wrap: balance; }
+.taiyi-header-flow { margin: 6px 0 0; }
+.taiyi-header-flow svg { display: block; width: 100%; height: 72px; overflow: visible; }
+.taiyi-header-link { stroke-width: 1.15; fill: none; }
+.taiyi-header-link--primary { stroke: var(--taiyi-ink); }
+.taiyi-header-link--conditional { stroke: var(--taiyi-ochre); stroke-dasharray: 4 4; }
+.taiyi-header-link--unknown { stroke: #7d8580; stroke-dasharray: 1 4; }
+.taiyi-header-node circle { fill: rgba(250, 247, 237, 0.94); stroke: rgba(31, 68, 56, 0.72); }
+.taiyi-header-node.is-center circle { fill: rgba(246, 234, 209, 0.96); stroke: var(--taiyi-cinnabar); stroke-width: 1.5; }
+.taiyi-header-node text { fill: #12382f; font-family: "Noto Serif SC", "Songti SC", serif; font-size: 9px; font-weight: 750; }
+.taiyi-header-node.is-center text { fill: #873f33; font-size: 10px; }
+.taiyi-hero-brand { display: flex; justify-content: space-between; margin: 5px -8px -8px; padding: 6px 8px 7px; border-top: 1px solid rgba(112, 91, 51, 0.26); background: rgba(250, 247, 236, 0.84); color: rgba(28, 59, 49, 0.84); font-size: 8px; letter-spacing: 0.08em; backdrop-filter: blur(4px); }
+.taiyi-hero-brand span:last-child { font-family: "Noto Serif SC", "Songti SC", serif; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; }
+
+.taiyi-nav { position: sticky; top: 0; z-index: 8; display: flex; justify-content: space-around; padding: 7px 5px 6px; border-bottom: 1px solid var(--taiyi-line); background: rgba(246, 241, 227, 0.94); backdrop-filter: blur(12px); }
+.taiyi-nav a { min-width: 0; padding: 7px 3px; color: #6b746e; font-size: 9px; font-weight: 700; line-height: 1; text-decoration: none; }
+.taiyi-nav a:focus-visible, summary:focus-visible { outline: 2px solid var(--taiyi-jade-deep); outline-offset: 2px; }
+.taiyi-sections { padding: 0 15px 0 18px; }
+.taiyi-section { position: relative; scroll-margin-top: 50px; padding: 34px 0 38px; border-bottom: 1px solid var(--taiyi-line); }
+.taiyi-chapter-stud { position: absolute; left: -67px; top: 31px; display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid rgba(141, 103, 40, 0.65); border-radius: 50%; background: rgba(218, 232, 222, 0.8); box-shadow: 0 0 0 4px rgba(246, 239, 220, 0.45), inset 0 0 0 2px rgba(255, 255, 255, 0.38); font: 18px "Noto Serif SC", "Songti SC", serif; }
+.taiyi-chapter-stud::after { content: ""; position: absolute; right: -14px; width: 14px; height: 1px; background: var(--taiyi-ochre); }
+.taiyi-section-heading p { margin: 0 0 6px; color: var(--taiyi-ochre); font-size: 9px; font-weight: 800; letter-spacing: 0.12em; }
+.taiyi-section-heading h2 { margin: 0; font-family: "Noto Serif SC", "Songti SC", serif; font-size: 24px; line-height: 1.34; }
+.taiyi-lead { margin: 14px 0 0; color: var(--taiyi-ink-soft); font-size: 13px; line-height: 1.76; }
+
+.taiyi-diagram { margin: 20px 0 0; }
+.taiyi-diagram svg { display: block; width: 100%; height: auto; overflow: visible; }
+.taiyi-diagram text { fill: var(--taiyi-ink); font-family: "Noto Sans SC", "PingFang SC", sans-serif; }
+.taiyi-relation-map { padding: 12px 8px 10px; background: rgba(250, 246, 235, 0.45); }
+.taiyi-diagram-link { stroke-width: 1.4; fill: none; }
+.taiyi-diagram-link--primary { stroke: var(--taiyi-jade-deep); }
+.taiyi-diagram-link--conditional { stroke: var(--taiyi-ochre); stroke-dasharray: 5 4; }
+.taiyi-diagram-link--unknown { stroke: #7d8580; stroke-dasharray: 1 4; }
+.taiyi-diagram-node circle { stroke-width: 1.2; }
+.taiyi-diagram-node--1 circle { fill: rgba(202, 222, 207, 0.9); stroke: #678a77; }
+.taiyi-diagram-node--2 circle { fill: rgba(232, 211, 181, 0.9); stroke: #aa7e48; }
+.taiyi-diagram-node--3 circle { fill: rgba(239, 224, 190, 0.94); stroke: #b38c4b; }
+.taiyi-diagram-node--4 circle { fill: rgba(206, 220, 225, 0.92); stroke: #66828e; }
+.taiyi-diagram-node--5 circle { fill: rgba(235, 211, 203, 0.92); stroke: #9e5c48; }
+.taiyi-diagram-node text { font-family: "Noto Serif SC", "Songti SC", serif; font-size: 12px; font-weight: 750; }
+.taiyi-diagram-node .taiyi-node-detail { fill: var(--taiyi-ink-soft); font: 7px "Noto Sans SC", sans-serif; }
+.taiyi-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 11px; width: max-content; margin: 0 auto; padding: 3px 8px; background: rgba(250, 247, 236, 0.86); color: var(--taiyi-ink-soft); font-size: 8px; }
+.taiyi-legend span { display: flex; align-items: center; gap: 5px; }
+.taiyi-line { display: inline-block; width: 24px; border-top: 1px solid var(--taiyi-jade-deep); }
+.taiyi-line--conditional { border-top-color: var(--taiyi-ochre); border-top-style: dashed; }
+.taiyi-line--unknown { border-top-color: #7d8580; border-top-style: dotted; }
+
+.taiyi-evidence-map rect { fill: rgba(255, 252, 243, 0.72); stroke: rgba(65, 96, 82, 0.32); }
+.taiyi-evidence-map path { fill: none; stroke: var(--taiyi-jade-deep); stroke-width: 1.2; }
+.taiyi-evidence-map circle { fill: rgba(223, 232, 217, 0.8); stroke: var(--taiyi-ochre); stroke-width: 1.4; }
+.taiyi-evidence-map text { font-size: 8px; }
+.taiyi-bullets { display: grid; gap: 9px; margin: 12px 0 0; padding: 0; list-style: none; }
+.taiyi-bullets li { position: relative; padding-left: 16px; color: var(--taiyi-ink-soft); font-size: 11px; line-height: 1.62; }
+.taiyi-bullets li::before { content: ""; position: absolute; left: 0; top: 0.67em; width: 6px; height: 1px; background: var(--taiyi-ochre); }
+.taiyi-disclosure { margin-top: 17px; border-top: 1px dashed var(--taiyi-line-strong); }
+.taiyi-disclosure summary { padding: 13px 0; color: var(--taiyi-ink); font-size: 11px; font-weight: 750; cursor: pointer; }
+
+.taiyi-path-diagram line { stroke: var(--taiyi-ochre); stroke-width: 1.2; }
+.taiyi-path-diagram circle { fill: rgba(241, 235, 217, 0.88); stroke: var(--taiyi-jade-deep); }
+.taiyi-path-index { font-size: 9px; font-weight: 800; }
+.taiyi-path-label { font-size: 7px; }
+.taiyi-professional { margin-top: 18px; border-block: 1px solid var(--taiyi-line); }
+.taiyi-professional article { padding: 16px 0; }
+.taiyi-professional article > span { color: var(--taiyi-ochre); font-size: 9px; font-weight: 800; letter-spacing: 0.1em; }
+.taiyi-professional blockquote { margin: 8px 0; font-family: "Noto Serif SC", "Songti SC", serif; font-size: 15px; font-weight: 650; line-height: 1.72; }
+.taiyi-professional p { margin: 0; color: var(--taiyi-ink-soft); font-size: 11px; line-height: 1.68; }
+.taiyi-professional > b { display: grid; place-items: center; height: 28px; margin: -1px 0; color: var(--taiyi-ochre); font-size: 17px; }
+.taiyi-scope-note { margin: 15px 0 0; padding: 11px; background: rgba(218, 231, 220, 0.58); color: #4c6258; font-size: 10px; line-height: 1.62; }
+
+.taiyi-radial-model svg > image { opacity: 0.95; }
+.taiyi-radial-model svg > line, .taiyi-radial-model g line { stroke: rgba(58, 89, 76, 0.62); stroke-width: 1.2; }
+.taiyi-radial-halo { fill: rgba(248, 241, 222, 0.72); stroke: rgba(180, 136, 66, 0.5); stroke-dasharray: 4 4; }
+.taiyi-radial-node { fill: rgba(250, 247, 235, 0.82); stroke-width: 1.3; }
+.taiyi-radial-node--1 { stroke: #517b64; }.taiyi-radial-node--2 { stroke: #b48747; }.taiyi-radial-node--3 { stroke: #6d8995; }.taiyi-radial-node--4 { stroke: #a25f4d; }.taiyi-radial-node--5 { stroke: #8e8260; }
+.taiyi-radial-model text { font-size: 7.5px; font-weight: 750; }
+.taiyi-radial-center { fill: rgba(231, 213, 176, 0.95); stroke: var(--taiyi-ochre); stroke-width: 1.7; }
+.taiyi-radial-center-text { font: 10px "Noto Serif SC", serif !important; }
+.taiyi-note-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; margin-top: 8px; border-top: 1px solid var(--taiyi-line); }
+.taiyi-note-grid p { margin: 0; padding: 10px 0; border-bottom: 1px solid var(--taiyi-line); }
+.taiyi-note-grid strong, .taiyi-note-grid span { display: block; }.taiyi-note-grid strong { font-size: 11px; }.taiyi-note-grid span { margin-top: 3px; color: var(--taiyi-ink-soft); font-size: 9px; line-height: 1.55; }
+.taiyi-ingredients { display: grid; grid-template-columns: 1fr 1fr; padding-bottom: 10px; }
+.taiyi-ingredients span { padding: 8px 4px 8px 0; border-bottom: 1px solid var(--taiyi-line); color: var(--taiyi-ink-soft); font-size: 9px; }
+.taiyi-execution { display: grid; gap: 7px; margin-top: 15px; padding: 12px; border-left: 2px solid var(--taiyi-ochre); background: rgba(251, 247, 236, 0.56); }
+.taiyi-execution strong { font-size: 10px; }.taiyi-execution span { color: var(--taiyi-ink-soft); font-size: 9px; line-height: 1.5; }
+
+.taiyi-positive-path { fill: none; stroke: var(--taiyi-positive); stroke-width: 2.3; }
+.taiyi-negative-path { fill: none; stroke: var(--taiyi-negative); stroke-width: 1.8; stroke-dasharray: 5 4; }
+.taiyi-observation-guide { stroke: rgba(110, 106, 91, 0.2); stroke-dasharray: 2 4; }
+.taiyi-positive-dot, .taiyi-negative-dot { stroke: var(--taiyi-paper-bright); stroke-width: 3; }.taiyi-positive-dot { fill: var(--taiyi-positive); }.taiyi-negative-dot { fill: var(--taiyi-negative); }
+.taiyi-observation svg text { font-size: 8px; font-weight: 700; }.taiyi-positive-label { fill: var(--taiyi-positive) !important; }.taiyi-negative-label { fill: var(--taiyi-negative) !important; }
+.taiyi-observation-notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(82px, 1fr)); border-top: 1px solid var(--taiyi-line); }
+.taiyi-observation-notes > div { padding: 10px 7px; border-right: 1px solid var(--taiyi-line); }.taiyi-observation-notes > div:last-child { border-right: 0; }
+.taiyi-observation-notes h3 { margin: 0 0 7px; font-size: 10px; }.taiyi-observation-notes p { display: grid; grid-template-columns: 6px 1fr; gap: 5px; margin: 5px 0; color: var(--taiyi-ink-soft); font-size: 8px; line-height: 1.45; }
+.taiyi-signal { width: 5px; height: 5px; margin-top: 4px; border-radius: 50%; }.taiyi-signal.is-positive { background: var(--taiyi-positive); }.taiyi-signal.is-negative { background: var(--taiyi-negative); }
+
+.taiyi-boundary-diagram ellipse { stroke-width: 1.3; }.taiyi-boundary-diagram .is-supported { fill: rgba(213, 230, 216, 0.56); stroke: var(--taiyi-positive); }.taiyi-boundary-diagram .is-unknown { fill: rgba(238, 219, 202, 0.48); stroke: var(--taiyi-cinnabar); }
+.taiyi-boundary-diagram text { font-size: 10px; font-weight: 750; }.taiyi-boundary-diagram .taiyi-boundary-center { fill: var(--taiyi-ochre); font-size: 9px; }.taiyi-boundary-diagram .taiyi-boundary-small { fill: var(--taiyi-ink-soft); font-size: 7px; font-weight: 500; }
+.taiyi-boundary-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }.taiyi-boundary-columns h3 { margin: 0 0 10px; font-size: 11px; }
+.taiyi-review { margin-top: 20px; padding-top: 13px; border-top: 1px solid var(--taiyi-line-strong); }.taiyi-review strong { color: var(--taiyi-jade-deep); font: 13px "Noto Serif SC", serif; }.taiyi-review p { margin: 6px 0 0; color: var(--taiyi-ink-soft); font-size: 10px; line-height: 1.62; }
+.taiyi-footer { padding: 28px 18px 42px; }.taiyi-footer span { font: 13px "Noto Serif SC", serif; letter-spacing: 0.16em; }.taiyi-footer p { margin: 7px 0 0; color: var(--taiyi-ink-soft); font-size: 9px; }
+
+@media (max-width: 360px) { .taiyi-report-content { margin-left: 48px; }.taiyi-chapter-stud { left: -61px; }.taiyi-section-heading h2 { font-size: 22px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }

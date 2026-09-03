@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://taiyi.local/schemas/image-suite-plan.schema.json",
+  "title": "Taiyi patient-facing pure image suite plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "projection", "visual_system", "pages"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "projection": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["schema_version", "sha256", "run_id", "result_id"],
+      "properties": {
+        "path": {"type": "string"},
+        "schema_version": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "run_id": {"type": "string", "minLength": 1},
+        "result_id": {"type": "string", "minLength": 1}
+      }
+    },
+    "visual_system": {
+      "type": "object",
+      "additionalProperties": true,
+      "minProperties": 1,
+      "properties": {
+        "brand_mother": {"type": "string"},
+        "r0_fusion": {"type": "string"},
+        "palette": {"type": "string"},
+        "state_encoding": {"type": "string"},
+        "avoid": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "pages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["index", "file", "type", "projection_fields", "display_text", "emphasis"],
+        "properties": {
+          "index": {"type": "integer", "minimum": 1},
+          "file": {"type": "string", "pattern": "^[^/\\\\]+\\.png$"},
+          "type": {"type": "string", "minLength": 1},
+          "projection_fields": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {"type": "string", "minLength": 1}
+          },
+          "display_text": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["source_field", "text", "mode"],
+              "properties": {
+                "source_field": {"type": "string", "minLength": 1},
+                "text": {"type": "string", "minLength": 1},
+                "mode": {"enum": ["exact", "condensed", "label"]}
+              }
+            }
+          },
+          "emphasis": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

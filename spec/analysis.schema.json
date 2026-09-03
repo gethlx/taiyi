@@ -1,0 +1,516 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://taiyi-shuji.local/spec/analysis.schema.json",
+  "title": "太乙枢机最小机器契约 1.1",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/CommittedAnalysis"
+    },
+    {
+      "$ref": "#/$defs/RunFailure"
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "string_list": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "id_list": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/id"
+      }
+    },
+    "Subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subject_id",
+        "kind",
+        "label"
+      ],
+      "properties": {
+        "subject_id": {
+          "$ref": "#/$defs/id"
+        },
+        "kind": {
+          "enum": [
+            "classic",
+            "formula",
+            "case"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "InputSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "raw_text",
+        "subject",
+        "confirmed_facts",
+        "ambiguous_facts",
+        "scope"
+      ],
+      "properties": {
+        "raw_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject": {
+          "$ref": "#/$defs/Subject"
+        },
+        "confirmed_facts": {
+          "$ref": "#/$defs/string_list"
+        },
+        "ambiguous_facts": {
+          "$ref": "#/$defs/string_list"
+        },
+        "scope": {
+          "$ref": "#/$defs/string_list"
+        }
+      }
+    },
+    "CaseContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "case_id",
+        "turn_id"
+      ],
+      "properties": {
+        "case_id": {
+          "$ref": "#/$defs/id"
+        },
+        "turn_id": {
+          "$ref": "#/$defs/id"
+        },
+        "parent_turn_id": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    },
+    "Ingredient": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "raw_text",
+        "name"
+      ],
+      "properties": {
+        "raw_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "amount": {
+          "type": [
+            "number",
+            "string"
+          ]
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "preparation": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "Formula": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "formula_id",
+        "role",
+        "composition"
+      ],
+      "properties": {
+        "formula_id": {
+          "$ref": "#/$defs/id"
+        },
+        "role": {
+          "enum": [
+            "input",
+            "reference",
+            "mentioned",
+            "candidate",
+            "formal_recommendation",
+            "sandbox"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "composition": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Ingredient"
+          }
+        },
+        "preparation_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "administration_text": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "Source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "work_id",
+        "title",
+        "source_path",
+        "start_line",
+        "end_line",
+        "excerpt"
+      ],
+      "properties": {
+        "work_id": {
+          "$ref": "#/$defs/id"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_path": {
+          "type": "string",
+          "pattern": "^kb/texts/"
+        },
+        "start_line": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "end_line": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "excerpt": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "RoleResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "Reasoning": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unresolved_conflicts"
+      ],
+      "properties": {
+        "r0": {
+          "$ref": "#/$defs/RoleResult"
+        },
+        "r1": {
+          "$ref": "#/$defs/RoleResult"
+        },
+        "r2": {
+          "$ref": "#/$defs/RoleResult"
+        },
+        "red_team": {
+          "$ref": "#/$defs/RoleResult"
+        },
+        "stage_c": {
+          "$ref": "#/$defs/RoleResult"
+        },
+        "unresolved_conflicts": {
+          "$ref": "#/$defs/string_list"
+        }
+      }
+    },
+    "DayItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "day",
+        "identity",
+        "text"
+      ],
+      "properties": {
+        "day": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "identity": {
+          "enum": [
+            "conditional_prediction",
+            "case_prediction",
+            "followup_prediction"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "Outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "result_id",
+        "identity",
+        "summary",
+        "risks",
+        "minimum_questions",
+        "day_progression"
+      ],
+      "properties": {
+        "result_id": {
+          "$ref": "#/$defs/id"
+        },
+        "identity": {
+          "enum": [
+            "classic_interpretation",
+            "formula_analysis",
+            "conditional_r2",
+            "r2_pending_physician_review",
+            "facts_or_evidence_insufficient",
+            "reserved_opinion"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "result_formula_id": {
+          "$ref": "#/$defs/id"
+        },
+        "risks": {
+          "$ref": "#/$defs/string_list"
+        },
+        "minimum_questions": {
+          "$ref": "#/$defs/string_list"
+        },
+        "day_progression": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DayItem"
+          }
+        }
+      }
+    },
+    "CallLog": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "call_id",
+        "responsibilities",
+        "status"
+      ],
+      "properties": {
+        "call_id": {
+          "$ref": "#/$defs/id"
+        },
+        "responsibilities": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "stage_0",
+              "r0",
+              "r1",
+              "r2",
+              "red_team",
+              "stage_c",
+              "graphic"
+            ]
+          }
+        },
+        "status": {
+          "enum": [
+            "succeeded",
+            "failed"
+          ]
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "error_code": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "CommittedAnalysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "record_type",
+        "committed",
+        "run_id",
+        "task_type",
+        "input",
+        "formulas",
+        "sources",
+        "reasoning",
+        "outcome",
+        "calls"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1.1"
+        },
+        "record_type": {
+          "const": "committed_analysis"
+        },
+        "committed": {
+          "const": true
+        },
+        "run_id": {
+          "$ref": "#/$defs/id"
+        },
+        "task_type": {
+          "enum": [
+            "classic_interpretation",
+            "formula_analysis",
+            "case_reasoning",
+            "followup"
+          ]
+        },
+        "input": {
+          "$ref": "#/$defs/InputSnapshot"
+        },
+        "case_context": {
+          "$ref": "#/$defs/CaseContext"
+        },
+        "formulas": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Formula"
+          }
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Source"
+          }
+        },
+        "reasoning": {
+          "$ref": "#/$defs/Reasoning"
+        },
+        "outcome": {
+          "$ref": "#/$defs/Outcome"
+        },
+        "calls": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CallLog"
+          }
+        }
+      }
+    },
+    "RunError": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "stage",
+        "message",
+        "retryable"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stage": {
+          "enum": [
+            "input",
+            "evidence",
+            "model",
+            "validation",
+            "commit"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retryable": {
+          "type": "boolean"
+        }
+      }
+    },
+    "RunFailure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "record_type",
+        "committed",
+        "run_id",
+        "task_type",
+        "error"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1.1"
+        },
+        "record_type": {
+          "const": "run_failure"
+        },
+        "committed": {
+          "const": false
+        },
+        "run_id": {
+          "$ref": "#/$defs/id"
+        },
+        "task_type": {
+          "enum": [
+            "classic_interpretation",
+            "formula_analysis",
+            "case_reasoning",
+            "followup"
+          ]
+        },
+        "previous_committed_run_id": {
+          "$ref": "#/$defs/id"
+        },
+        "error": {
+          "$ref": "#/$defs/RunError"
+        }
+      }
+    }
+  }
+}

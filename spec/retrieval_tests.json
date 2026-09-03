@@ -1,0 +1,867 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-07-26",
+  "title": "太乙枢机阶段 2 证据端口真实夹具",
+  "phase": 2,
+  "policy": {
+    "stage0_or_later_question_only": true,
+    "task_semantics_forbidden": true,
+    "source_readback_required": true,
+    "related_candidates_are_not_support": true,
+    "browser_gate_deferred_to_phase_3": true
+  },
+  "cases": [
+    {
+      "test_id": "RT-01",
+      "title": "仲景原句回到唯一正文",
+      "request": {
+        "request_id": "ER-RT-01",
+        "task_id": "TASK-CLASSIC-01",
+        "origin_stage": "stage_0",
+        "question_text": "定位桂林古本中知犯何逆，随证治之的原文。",
+        "target_work_ids": ["T04-GL"],
+        "exact_quote_targets": ["知犯何逆，随证治之"],
+        "topic_hints": ["辨证论治"],
+        "max_evidence": 6
+      },
+      "expected": {
+        "assessments": [
+          {
+            "target_work_id": "T04-GL",
+            "state": "complete",
+            "required_direct_phrases": ["知犯何逆", "随证治之"]
+          }
+        ],
+        "required_identities": [
+          {
+            "work_id": "T04-GL",
+            "kind": "classic_original",
+            "authority_role": "main"
+          }
+        ],
+        "required_trace_phases": ["card_route", "exact_quote_search", "source_readback", "assessment"]
+      }
+    },
+    {
+      "test_id": "RT-02",
+      "title": "参同契保持同层参校调用权",
+      "request": {
+        "request_id": "ER-RT-02",
+        "task_id": "TASK-CLASSIC-02",
+        "origin_stage": "stage_0",
+        "question_text": "定位参同契含德之厚，归根返元的原文章群。",
+        "target_work_ids": ["T01-CT-WS"],
+        "exact_quote_targets": ["含德之厚，归根返元"],
+        "topic_hints": ["归根返元"],
+        "max_evidence": 6
+      },
+      "expected": {
+        "assessments": [
+          {
+            "target_work_id": "T01-CT-WS",
+            "state": "complete",
+            "required_direct_phrases": ["含德之厚", "归根返元"]
+          }
+        ],
+        "required_identities": [
+          {
+            "work_id": "T01-CT-WS",
+            "kind": "classic_original",
+            "authority_role": "same_layer_reference"
+          }
+        ],
+        "required_trace_phases": ["card_route", "exact_quote_search", "adjacent_expansion", "source_readback"]
+      }
+    },
+    {
+      "test_id": "RT-03",
+      "title": "类经保持注解身份",
+      "request": {
+        "request_id": "ER-RT-03",
+        "task_id": "TASK-CLASSIC-03",
+        "origin_stage": "stage_a",
+        "question_text": "定位类经中法于阴阳的注解载体。",
+        "target_work_ids": ["T03-LJ-WS"],
+        "exact_quote_targets": ["法于阴阳"],
+        "topic_hints": ["注解"],
+        "max_evidence": 5
+      },
+      "expected": {
+        "assessments": [
+          {
+            "target_work_id": "T03-LJ-WS",
+            "state": "complete",
+            "required_direct_phrases": ["法于阴阳"]
+          }
+        ],
+        "required_identities": [
+          {
+            "work_id": "T03-LJ-WS",
+            "kind": "commentary_reference",
+            "authority_role": "annotation"
+          }
+        ],
+        "required_trace_phases": ["card_route", "exact_quote_search", "source_readback"]
+      }
+    },
+    {
+      "test_id": "RT-04",
+      "title": "太素残文不被补成完整原句",
+      "request": {
+        "request_id": "ER-RT-04",
+        "task_id": "TASK-CLASSIC-04",
+        "origin_stage": "stage_a",
+        "question_text": "定位太素深□□□□□□静这处残文。",
+        "target_work_ids": ["T02-TS-WS"],
+        "exact_quote_targets": ["深□□□□□□静"],
+        "topic_hints": ["残文"],
+        "max_evidence": 6
+      },
+      "expected": {
+        "assessments": [
+          {
+            "target_work_id": "T02-TS-WS",
+            "state": "fragmentary",
+            "required_direct_phrases": ["深□□□□□□静"]
+          }
+        ],
+        "required_identities": [
+          {
+            "work_id": "T02-TS-WS",
+            "kind": "classic_original",
+            "authority_role": "same_layer_reference"
+          }
+        ],
+        "required_trace_phases": ["exact_quote_search", "source_readback", "assessment"]
+      }
+    },
+    {
+      "test_id": "RT-05",
+      "title": "参同契异文只并列不裁定",
+      "request": {
+        "request_id": "ER-RT-05",
+        "task_id": "TASK-CLASSIC-05",
+        "origin_stage": "stage_b",
+        "question_text": "定位参同契仲尼赞鸿蒙一作乾坤的异文。",
+        "target_work_ids": ["T01-CT-WS"],
+        "exact_quote_targets": ["仲尼赞鸿蒙一作乾坤"],
+        "topic_hints": ["异文", "一作"],
+        "max_evidence": 6
+      },
+      "expected": {
+        "assessments": [
+          {
+            "target_work_id": "T01-CT-WS",
+            "state": "conflicting",
+            "required_direct_phrases": ["仲尼赞鸿蒙", "一作“乾坤”"],
+            "minimum_variant_candidates": 1
+          }
+        ],
+        "required_variant_readings": ["鸿蒙", "乾坤"],
+        "required_trace_phases": ["exact_quote_search", "source_readback", "assessment"]
+      }
+    },
+    {
+      "test_id": "RT-06",
+      "title": "目标书未取回时跨书只作候选",
+      "request": {
+        "request_id": "ER-RT-06",
+        "task_id": "TASK-CLASSIC-06",
+        "origin_stage": "stage_a",
+        "question_text": "核对参同契是否有三焦者，决渎之官，水道出焉。",
+        "target_work_ids": ["T01-CT-WS"],
+        "exact_quote_targets": ["三焦者，决渎之官，水道出焉"],
+        "topic_hints": ["三焦", "水道"],
+        "max_evidence": 8
+      },
+      "expected": {
+        "assessments": [
+          {
+            "target_work_id": "T01-CT-WS",
+            "state": "not_retrieved",
+            "required_related_work_ids": ["T02-SW-WS"]
+          }
+        ],
+        "minimum_cross_work_candidates": 1,
+        "required_trace_phases": ["exact_quote_search", "cross_work_expansion", "source_readback", "assessment"]
+      }
+    },
+    {
+      "test_id": "RT-07",
+      "title": "全语料无原句时只报未取回",
+      "request": {
+        "request_id": "ER-RT-07",
+        "task_id": "TASK-CLASSIC-07",
+        "origin_stage": "stage_c",
+        "question_text": "核对参同契中玄牝分列十二宫位。",
+        "target_work_ids": ["T01-CT-WS"],
+        "exact_quote_targets": ["玄牝分列十二宫位"],
+        "topic_hints": ["玄牝"],
+        "max_evidence": 6
+      },
+      "expected": {
+        "assessments": [
+          {
+            "target_work_id": "T01-CT-WS",
+            "state": "not_retrieved",
+            "required_related_work_ids": []
+          }
+        ],
+        "maximum_source_evidence": 0,
+        "required_trace_phases": ["exact_quote_search", "source_readback", "assessment"]
+      }
+    },
+    {
+      "test_id": "RT-08",
+      "title": "方剂组成定位问题不触发方义",
+      "request_context": "formula_analysis",
+      "request": {
+        "request_id": "ER-RT-08",
+        "task_id": "TASK-FORMULA-08",
+        "origin_stage": "stage_a",
+        "question_text": "定位桂枝汤五味组成的原文。",
+        "target_work_ids": ["T04-GL"],
+        "exact_quote_targets": ["桂枝三两（去皮） 芍药三两 甘草二两（炙） 生姜三两（切） 大枣十二枚（劈）"],
+        "topic_hints": ["桂枝汤", "组成"],
+        "max_evidence": 6
+      },
+      "expected": {
+        "assessments": [
+          {
+            "target_work_id": "T04-GL",
+            "state": "complete",
+            "required_direct_phrases": ["桂枝三两", "芍药三两", "大枣十二枚"]
+          }
+        ],
+        "required_trace_phases": ["exact_quote_search", "adjacent_expansion", "source_readback"]
+      }
+    },
+    {
+      "test_id": "RT-09",
+      "title": "方剂煎服定位问题保持原文",
+      "request_context": "formula_analysis",
+      "request": {
+        "request_id": "ER-RT-09",
+        "task_id": "TASK-FORMULA-09",
+        "origin_stage": "stage_b",
+        "question_text": "定位桂枝汤以水七升微火煮取三升的煎服原文。",
+        "target_work_ids": ["T04-GL"],
+        "exact_quote_targets": ["以水七升，微火煮取三升，去滓，适寒温，服一升"],
+        "topic_hints": ["桂枝汤", "煎服"],
+        "max_evidence": 6
+      },
+      "expected": {
+        "assessments": [
+          {
+            "target_work_id": "T04-GL",
+            "state": "complete",
+            "required_direct_phrases": ["以水七升", "微火煮取三升", "服一升"]
+          }
+        ],
+        "required_trace_phases": ["exact_quote_search", "source_readback"]
+      }
+    },
+    {
+      "test_id": "RT-10",
+      "title": "本草定位只回传原文身份",
+      "request_context": "formula_analysis",
+      "request": {
+        "request_id": "ER-RT-10",
+        "task_id": "TASK-FORMULA-10",
+        "origin_stage": "stage_b",
+        "question_text": "定位神农本草经牡桂味辛温主上气咳逆的原文。",
+        "target_work_ids": ["T06-SN"],
+        "exact_quote_targets": ["味辛，温，主上气咳逆，结气，喉痹吐吸"],
+        "topic_hints": ["牡桂", "性味"],
+        "max_evidence": 5
+      },
+      "expected": {
+        "assessments": [
+          {
+            "target_work_id": "T06-SN",
+            "state": "complete",
+            "required_direct_phrases": ["味辛，温", "主上气咳逆"]
+          }
+        ],
+        "required_identities": [
+          {
+            "work_id": "T06-SN",
+            "kind": "classic_original",
+            "authority_role": "conditional"
+          }
+        ],
+        "required_trace_phases": ["exact_quote_search", "source_readback"]
+      }
+    },
+    {
+      "test_id": "RT-11",
+      "title": "病例阶段发来的病机原句定位",
+      "request_context": "case_reasoning",
+      "request": {
+        "request_id": "ER-RT-11",
+        "task_id": "TASK-CASE-11",
+        "origin_stage": "stage_a",
+        "question_text": "定位素问诸风掉眩皆属于肝的原文。",
+        "target_work_ids": ["T02-SW-WS"],
+        "exact_quote_targets": ["诸风掉眩，皆属于肝"],
+        "topic_hints": ["病机十九条"],
+        "max_evidence": 5
+      },
+      "expected": {
+        "assessments": [
+          {
+            "target_work_id": "T02-SW-WS",
+            "state": "complete",
+            "required_direct_phrases": ["诸风掉眩", "皆属于肝"]
+          }
+        ],
+        "required_trace_phases": ["exact_quote_search", "source_readback"]
+      }
+    },
+    {
+      "test_id": "RT-12",
+      "title": "复察阶段发来的服后条文定位",
+      "request_context": "followup",
+      "request": {
+        "request_id": "ER-RT-12",
+        "task_id": "TASK-FOLLOWUP-12",
+        "origin_stage": "stage_c",
+        "question_text": "定位服桂枝汤后大汗出脉洪大的条文。",
+        "target_work_ids": ["T04-GL"],
+        "exact_quote_targets": ["太阳病，服桂枝汤后，大汗出，脉洪大者"],
+        "topic_hints": ["服后", "复察"],
+        "max_evidence": 6
+      },
+      "expected": {
+        "assessments": [
+          {
+            "target_work_id": "T04-GL",
+            "state": "complete",
+            "required_direct_phrases": ["服桂枝汤后", "大汗出", "脉洪大"]
+          }
+        ],
+        "required_trace_phases": ["exact_quote_search", "source_readback"]
+      }
+    },
+    {
+      "test_id": "RT-13",
+      "title": "常见繁简异体不降低真实召回",
+      "request": {
+        "request_id": "ER-RT-13",
+        "task_id": "TASK-CLASSIC-13",
+        "origin_stage": "stage_0",
+        "question_text": "定位千金翼方醫道之為言實惟意也。",
+        "target_work_ids": ["T07-YIF"],
+        "exact_quote_targets": ["醫道之為言，實惟意也"],
+        "topic_hints": ["医道"],
+        "max_evidence": 4
+      },
+      "expected": {
+        "assessments": [
+          {
+            "target_work_id": "T07-YIF",
+            "state": "complete",
+            "required_direct_phrases": ["医道之为言", "实惟意也"]
+          }
+        ],
+        "required_trace_phases": ["exact_quote_search", "source_readback"]
+      }
+    },
+    {
+      "test_id": "RT-14",
+      "title": "多目标逐书返回状态",
+      "request": {
+        "request_id": "ER-RT-14",
+        "task_id": "TASK-CLASSIC-14",
+        "origin_stage": "stage_a",
+        "question_text": "分别核对参同契和素问中的三焦者决渎之官水道出焉。",
+        "target_work_ids": ["T01-CT-WS", "T02-SW-WS"],
+        "exact_quote_targets": ["三焦者，决渎之官，水道出焉"],
+        "topic_hints": ["三焦", "水道"],
+        "max_evidence": 8
+      },
+      "expected": {
+        "assessments": [
+          {
+            "target_work_id": "T01-CT-WS",
+            "state": "not_retrieved",
+            "required_related_work_ids": ["T02-SW-WS"]
+          },
+          {
+            "target_work_id": "T02-SW-WS",
+            "state": "complete",
+            "required_direct_phrases": ["三焦者", "水道出焉"]
+          }
+        ],
+        "required_trace_phases": ["exact_quote_search", "cross_work_expansion", "source_readback", "assessment"]
+      }
+    }
+  ],
+  "adversarial_probes": [
+    {
+      "probe_id": "RP-01",
+      "kind": "source_query",
+      "title": "编辑说明不得冒充经典原文",
+      "target_work_id": "T05-FXJ-WS",
+      "exact_quote_target": "编辑说明",
+      "expected_state": "not_retrieved",
+      "forbidden_excerpt_phrases": ["编辑说明"]
+    },
+    {
+      "probe_id": "RP-02",
+      "kind": "request_extra_field",
+      "title": "检索器不接收任务模式",
+      "field": "task_mode",
+      "value": "classic_interpretation"
+    },
+    {
+      "probe_id": "RP-03",
+      "kind": "request_extra_field",
+      "title": "检索器不接收活动任务裁决",
+      "field": "active_task",
+      "value": {"task_id": "TASK-X"}
+    },
+    {
+      "probe_id": "RP-04",
+      "kind": "source_query",
+      "title": "Markdown 标题不得冒充原文",
+      "target_work_id": "T02-SW-WS",
+      "exact_quote_target": "黃帝內經/素問第一卷",
+      "expected_state": "not_retrieved",
+      "forbidden_excerpt_phrases": ["黃帝內經/素問第一卷"]
+    },
+    {
+      "probe_id": "RP-05",
+      "kind": "result_forbidden_key",
+      "title": "阶段 2 不生成支持关系",
+      "field": "supports",
+      "value": ["CLAIM-X"]
+    },
+    {
+      "probe_id": "RP-06",
+      "kind": "source_query",
+      "title": "完整片段不继承整书残文状态",
+      "target_work_id": "T02-TS-WS",
+      "exact_quote_target": "两神相薄，合而成形，常先身生，是谓精",
+      "expected_state": "complete"
+    },
+    {
+      "probe_id": "RP-07",
+      "kind": "source_query",
+      "title": "伪造引句不能借宽泛主题升级",
+      "target_work_id": "T01-CT-WS",
+      "exact_quote_target": "天猫黑洞十二宫",
+      "topic_hints": ["阴阳", "气化"],
+      "expected_state": "not_retrieved"
+    },
+    {
+      "probe_id": "RP-08",
+      "kind": "source_query",
+      "title": "同段无关异文不得污染目标",
+      "target_work_id": "T01-CT-WS",
+      "exact_quote_target": "消息应中律，升降据斗枢",
+      "topic_hints": ["异文"],
+      "expected_state": "complete",
+      "expected_variant_readings": []
+    },
+    {
+      "probe_id": "RP-09",
+      "kind": "request_extra_field",
+      "title": "后续任务类型不能进入证据端口",
+      "field": "requested_task_mode",
+      "value": "formula_analysis"
+    },
+    {
+      "probe_id": "RP-10",
+      "kind": "source_checksum_drift",
+      "title": "正文与 manifest 漂移时失败关闭",
+      "target_work_id": "T01-CT-WS"
+    },
+    {
+      "probe_id": "RP-11",
+      "kind": "source_query",
+      "title": "目标书由 Stage 0 明确提供",
+      "target_work_id": "T04-GL",
+      "exact_quote_target": "知犯何逆，随证治之",
+      "expected_state": "complete"
+    },
+    {
+      "probe_id": "RP-12",
+      "kind": "source_query",
+      "title": "类经不得提升为内经主干",
+      "target_work_id": "T03-LJ-WS",
+      "exact_quote_target": "法于阴阳",
+      "expected_state": "complete",
+      "expected_kind": "commentary_reference",
+      "expected_authority_role": "annotation"
+    },
+    {
+      "probe_id": "RP-13",
+      "kind": "source_query",
+      "title": "行内维基编者注不得冒充原文",
+      "target_work_id": "T05-FXJ-WS",
+      "exact_quote_target": "维基文库注：网页排版因素",
+      "expected_state": "not_retrieved",
+      "forbidden_excerpt_phrases": ["维基文库注：网页排版因素"]
+    },
+    {
+      "probe_id": "RP-14",
+      "kind": "source_query",
+      "title": "无引号标题仍不成为正文",
+      "target_work_id": "T02-SW-WS",
+      "exact_quote_target": "黃帝內經/素問第一卷",
+      "expected_state": "not_retrieved"
+    },
+    {
+      "probe_id": "RP-15",
+      "kind": "request_extra_field",
+      "title": "待续意图属于 Stage 0",
+      "field": "pending_intents",
+      "value": []
+    },
+    {
+      "probe_id": "RP-16",
+      "kind": "request_extra_field",
+      "title": "方名不能取得证据端口对象裁决权",
+      "field": "formula_name",
+      "value": "桂枝汤"
+    },
+    {
+      "probe_id": "RP-17",
+      "kind": "source_query",
+      "title": "第二主题不能替代第一目标",
+      "target_work_id": "T01-CT-WS",
+      "exact_quote_target": "天猫黑洞十二宫",
+      "topic_hints": ["法于阴阳"],
+      "expected_state": "not_retrieved"
+    },
+    {
+      "probe_id": "RP-18",
+      "kind": "result_forbidden_key",
+      "title": "阶段 2 不生成冲突关系",
+      "field": "conflicts",
+      "value": ["CLAIM-X"]
+    },
+    {
+      "probe_id": "RP-19",
+      "kind": "source_query",
+      "title": "长段后部残缺不污染当前完整目标",
+      "target_work_id": "T02-TS-WS",
+      "exact_quote_target": "肺合大肠，大肠者，皮其应也",
+      "expected_state": "complete"
+    },
+    {
+      "probe_id": "RP-20",
+      "kind": "source_query",
+      "title": "目标句不继承无关异文",
+      "target_work_id": "T01-CT-WS",
+      "exact_quote_target": "消息应中律，升降据斗枢",
+      "topic_hints": ["异文"],
+      "expected_state": "complete",
+      "expected_variant_readings": []
+    },
+    {
+      "probe_id": "RP-21",
+      "kind": "source_query",
+      "title": "注解命中只能成为相关候选",
+      "target_work_id": "T02-SW-WS",
+      "exact_quote_target": "天以阴阳而化生万物人以阴阳而荣养一身",
+      "topic_hints": ["类经"],
+      "expected_state": "not_retrieved",
+      "required_related_work_id": "T03-LJ-WS"
+    },
+    {
+      "probe_id": "RP-24",
+      "kind": "source_query",
+      "title": "太素平按校勘语不得冒充经文",
+      "target_work_id": "T02-TS-WS",
+      "exact_quote_target": "平按∶《素问》余闻作余知",
+      "expected_state": "not_retrieved",
+      "forbidden_excerpt_phrases": ["平按∶《素问》余闻作余知"]
+    },
+    {
+      "probe_id": "RP-25",
+      "kind": "request_extra_field",
+      "title": "图形请求不进入证据端口",
+      "field": "requested_visuals",
+      "value": ["evidence_relation"]
+    },
+    {
+      "probe_id": "RP-26",
+      "kind": "request_extra_field",
+      "title": "模型 claim 不进入证据请求",
+      "field": "claim",
+      "value": {"claim_id": "CLAIM-X"}
+    },
+    {
+      "probe_id": "RP-27",
+      "kind": "request_extra_field",
+      "title": "病例身份不由证据端口接收",
+      "field": "case_id",
+      "value": "CASE-X"
+    },
+    {
+      "probe_id": "RP-28",
+      "kind": "source_query",
+      "title": "太素显式校勘异文只并列",
+      "target_work_id": "T02-TS-WS",
+      "exact_quote_target": "食而气逆",
+      "topic_hints": ["异文"],
+      "expected_state": "conflicting",
+      "expected_variant_readings": ["食而气逆", "飧泄"]
+    },
+    {
+      "probe_id": "RP-29",
+      "kind": "result_forbidden_key",
+      "title": "阶段 2 不输出语义图",
+      "field": "semantic_graph",
+      "value": {"nodes": [], "edges": []}
+    },
+    {
+      "probe_id": "RP-30",
+      "kind": "result_forbidden_key",
+      "title": "阶段 2 不输出视觉对象",
+      "field": "visuals",
+      "value": []
+    },
+    {
+      "probe_id": "RP-31",
+      "kind": "request_extra_field",
+      "title": "复察上下文不进入证据端口",
+      "field": "followup_context",
+      "value": {}
+    },
+    {
+      "probe_id": "RP-32",
+      "kind": "request_extra_field",
+      "title": "支持关系意图不进入请求",
+      "field": "relation",
+      "value": "supports"
+    },
+    {
+      "probe_id": "RP-33",
+      "kind": "request_extra_field",
+      "title": "期望答案不进入请求",
+      "field": "desired_answer",
+      "value": "生成解释"
+    },
+    {
+      "probe_id": "RP-34",
+      "kind": "source_query",
+      "title": "缺字通配不得跨标点拼句",
+      "target_work_id": "T02-TS-WS",
+      "exact_quote_target": "怒则□□气缓",
+      "expected_state": "not_retrieved"
+    },
+    {
+      "probe_id": "RP-35",
+      "kind": "source_query",
+      "title": "灵枢内嵌一作保留为异文",
+      "target_work_id": "T02-LS-WS",
+      "exact_quote_target": "起于鼻，之交頞中",
+      "topic_hints": ["异文"],
+      "expected_state": "conflicting",
+      "expected_variant_readings": ["之", "上"]
+    },
+    {
+      "probe_id": "RP-36",
+      "kind": "source_query",
+      "title": "太素孤立校勘异读不得冒充正文",
+      "target_work_id": "T02-TS-WS",
+      "exact_quote_target": "进满",
+      "expected_state": "not_retrieved"
+    },
+    {
+      "probe_id": "RP-37",
+      "kind": "source_query",
+      "title": "目标书未取回而素问仅为候选",
+      "target_work_id": "T02-TS-WS",
+      "exact_quote_target": "煎厥",
+      "expected_state": "not_retrieved",
+      "required_related_work_id": "T02-SW-WS"
+    },
+    {
+      "probe_id": "RP-38",
+      "kind": "request_extra_field",
+      "title": "风险动作不进入证据端口",
+      "field": "risk_action",
+      "value": "试药"
+    },
+    {
+      "probe_id": "RP-39",
+      "kind": "request_extra_field",
+      "title": "任务队列不进入证据端口",
+      "field": "queued_task_ids",
+      "value": ["TASK-Y"]
+    },
+    {
+      "probe_id": "RP-40",
+      "kind": "request_extra_field",
+      "title": "病例上下文不进入证据端口",
+      "field": "case_context",
+      "value": {}
+    },
+    {
+      "probe_id": "RP-41",
+      "kind": "source_query",
+      "title": "真实缺字句保持残文",
+      "target_work_id": "T02-TS-WS",
+      "exact_quote_target": "阴乔、阳乔、任脉、□□□二十八脉",
+      "expected_state": "fragmentary"
+    },
+    {
+      "probe_id": "RP-42",
+      "kind": "source_query",
+      "title": "周易尖括号异文并列",
+      "target_work_id": "T01-YI-WS",
+      "exact_quote_target": "保合大和",
+      "topic_hints": ["异文"],
+      "expected_state": "conflicting",
+      "expected_variant_readings": ["大和", "太和"]
+    },
+    {
+      "probe_id": "RP-43",
+      "kind": "result_forbidden_key",
+      "title": "阶段 2 不给出推理顺序",
+      "field": "reasoning_order",
+      "value": ["meta_classic", "medical_model"]
+    },
+    {
+      "probe_id": "RP-44",
+      "kind": "source_query",
+      "title": "长书名目标只按显式 work_id 评估",
+      "target_work_id": "T06-BC",
+      "exact_quote_target": "今辄苞综诸经，研括烦省",
+      "expected_state": "complete"
+    },
+    {
+      "probe_id": "RP-45",
+      "kind": "source_query",
+      "title": "繁体目标可定位简体正文",
+      "target_work_id": "T07-YIF",
+      "exact_quote_target": "醫道之為言，實惟意也",
+      "expected_state": "complete"
+    },
+    {
+      "probe_id": "RP-46",
+      "kind": "source_query",
+      "title": "方框只能匹配来源真实缺字",
+      "target_work_id": "T02-TS-WS",
+      "exact_quote_target": "□□问岐伯曰余□□□□□□□□",
+      "expected_state": "fragmentary"
+    },
+    {
+      "probe_id": "RP-47",
+      "kind": "result_forbidden_key",
+      "title": "阶段 2 不输出模型泛化",
+      "field": "model_generalization",
+      "value": "机械补全"
+    },
+    {
+      "probe_id": "RP-48",
+      "kind": "source_query",
+      "title": "版本来源说明不得冒充经典",
+      "target_work_id": "T04-GL",
+      "exact_quote_target": "据广西人民出版社1980年7月第2版",
+      "expected_state": "not_retrieved",
+      "forbidden_excerpt_phrases": ["据广西人民出版社1980年7月第2版"]
+    },
+    {
+      "probe_id": "RP-49",
+      "kind": "result_forbidden_key",
+      "title": "阶段 2 不输出推论占位",
+      "field": "current_inference",
+      "value": {"text": "无来源"}
+    },
+    {
+      "probe_id": "RP-50",
+      "kind": "source_query",
+      "title": "引文内书名不制造第二评估目标",
+      "target_work_id": "T03-LJ-WS",
+      "exact_quote_target": "按《灵枢》《素问》校读此句",
+      "expected_state": "not_retrieved"
+    },
+    {
+      "probe_id": "RP-51",
+      "kind": "request_extra_field",
+      "title": "方剂对象不作为结构字段进入请求",
+      "field": "formula",
+      "value": {"formula_id": "FORM-X"}
+    },
+    {
+      "probe_id": "RP-52",
+      "kind": "request_extra_field",
+      "title": "图形语义不作为请求字段进入端口",
+      "field": "semantic_graph",
+      "value": {}
+    },
+    {
+      "probe_id": "RP-53",
+      "kind": "source_query",
+      "title": "辅行诀一作异文并列",
+      "target_work_id": "T05-FXJ-WS",
+      "exact_quote_target": "生姜一作大枣",
+      "topic_hints": ["异文"],
+      "expected_state": "conflicting",
+      "expected_variant_readings": ["生姜", "大枣"]
+    },
+    {
+      "probe_id": "RP-54",
+      "kind": "source_query",
+      "title": "同句多组方框仍为残文",
+      "target_work_id": "T02-TS-WS",
+      "exact_quote_target": "神□□□□□□物□任物",
+      "expected_state": "fragmentary"
+    }
+  ],
+  "contract_mutations": [
+    {
+      "mutation_id": "RM-01",
+      "path": "/retrieval_assessments/0/direct_evidence_ids",
+      "value": [],
+      "expected_error_prefix": "assessment.complete_invalid"
+    },
+    {
+      "mutation_id": "RM-02",
+      "path": "/retrieval_assessments/0/state",
+      "value": "not_retrieved",
+      "expected_error_prefix": "assessment.not_retrieved_has_direct"
+    },
+    {
+      "mutation_id": "RM-03",
+      "path": "/retrieval_assessments/0/related_candidate_evidence_ids",
+      "value": ["EV-NOT-REAL"],
+      "expected_error_prefix": "assessment.related_unknown"
+    },
+    {
+      "mutation_id": "RM-04",
+      "path": "/source_evidence/0/source_path",
+      "value": "kb/texts/../manifest.json",
+      "expected_error_prefix": "evidence.path_mismatch"
+    },
+    {
+      "mutation_id": "RM-05",
+      "path": "/source_evidence/0/body_sha256",
+      "value": "0000000000000000000000000000000000000000000000000000000000000000",
+      "expected_error_prefix": "evidence.body_sha_mismatch"
+    },
+    {
+      "mutation_id": "RM-06",
+      "path": "/source_evidence/0/excerpt",
+      "value": "伪造原文",
+      "expected_error_prefix": "evidence.excerpt_mismatch"
+    },
+    {
+      "mutation_id": "RM-07",
+      "path": "/source_evidence/0/authority_role",
+      "value": "annotation",
+      "expected_error_prefix": "evidence.authority_mismatch"
+    },
+    {
+      "mutation_id": "RM-08",
+      "path": "/corpus_snapshot/manifest_sha256",
+      "value": "0000000000000000000000000000000000000000000000000000000000000000",
+      "expected_error_prefix": "snapshot.manifest_sha_mismatch"
+    }
+  ]
+}

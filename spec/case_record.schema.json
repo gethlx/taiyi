@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://taiyi-shuji.local/spec/case_record.schema.json",
+  "title": "太乙枢机个人病历最小契约 1.0",
+  "oneOf": [
+    {"$ref": "#/$defs/PatientRecord"},
+    {"$ref": "#/$defs/CaseSnapshot"}
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "string_list": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "Ingredient": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["raw_text", "name"],
+      "properties": {
+        "raw_text": {"type": "string", "minLength": 1},
+        "name": {"type": "string", "minLength": 1},
+        "amount": {"type": ["number", "string"]},
+        "unit": {"type": "string", "minLength": 1},
+        "preparation": {"type": "string", "minLength": 1}
+      }
+    },
+    "RecordFormula": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["formula_id", "role", "composition"],
+      "properties": {
+        "formula_id": {"$ref": "#/$defs/id"},
+        "role": {"const": "input"},
+        "name": {"type": "string", "minLength": 1},
+        "composition": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/Ingredient"}
+        },
+        "preparation_text": {"type": "string", "minLength": 1},
+        "administration_text": {"type": "string", "minLength": 1}
+      }
+    },
+    "SnapshotFormula": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["formula_id", "role", "composition"],
+      "properties": {
+        "formula_id": {"$ref": "#/$defs/id"},
+        "role": {"enum": ["input", "formal_recommendation"]},
+        "name": {"type": "string", "minLength": 1},
+        "composition": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/Ingredient"}
+        },
+        "preparation_text": {"type": "string", "minLength": 1},
+        "administration_text": {"type": "string", "minLength": 1}
+      }
+    },
+    "FinalEvolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["r0_summary", "r1_summary", "unresolved_boundaries"],
+      "properties": {
+        "r0_summary": {"type": "string", "minLength": 1},
+        "r1_summary": {"type": "string", "minLength": 1},
+        "comparison_to_previous": {"type": "string", "minLength": 1},
+        "unresolved_boundaries": {"$ref": "#/$defs/string_list"}
+      }
+    },
+    "AnalysisBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_id",
+        "result_id",
+        "outcome_identity",
+        "analysis_file",
+        "final_evolution"
+      ],
+      "properties": {
+        "run_id": {"$ref": "#/$defs/id"},
+        "result_id": {"$ref": "#/$defs/id"},
+        "outcome_identity": {
+          "enum": [
+            "conditional_r2",
+            "r2_pending_physician_review",
+            "facts_or_evidence_insufficient",
+            "reserved_opinion"
+          ]
+        },
+        "analysis_file": {"type": "string", "minLength": 1},
+        "final_evolution": {"$ref": "#/$defs/FinalEvolution"}
+      }
+    },
+    "Visit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "turn_id",
+        "raw_text",
+        "confirmed_facts",
+        "ambiguous_facts"
+      ],
+      "properties": {
+        "turn_id": {"$ref": "#/$defs/id"},
+        "parent_turn_id": {"$ref": "#/$defs/id"},
+        "raw_text": {"type": "string", "minLength": 1},
+        "confirmed_facts": {"$ref": "#/$defs/string_list"},
+        "ambiguous_facts": {"$ref": "#/$defs/string_list"},
+        "external_context": {"$ref": "#/$defs/string_list"},
+        "clinician_opinions": {"$ref": "#/$defs/string_list"},
+        "actual_formulas": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/RecordFormula"}
+        },
+        "treatment_response": {"$ref": "#/$defs/string_list"},
+        "corrections": {"$ref": "#/$defs/string_list"},
+        "analysis_binding": {"$ref": "#/$defs/AnalysisBinding"}
+      }
+    },
+    "PatientRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "record_type", "case_id", "label", "visits"],
+      "properties": {
+        "schema_version": {"const": "1.0"},
+        "record_type": {"const": "patient_record"},
+        "case_id": {"$ref": "#/$defs/id"},
+        "label": {"type": "string", "minLength": 1},
+        "visits": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/Visit"}
+        }
+      }
+    },
+    "DayItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["day", "identity", "text"],
+      "properties": {
+        "day": {"type": "integer", "minimum": 1, "maximum": 3},
+        "identity": {"enum": ["case_prediction", "followup_prediction"]},
+        "text": {"type": "string", "minLength": 1}
+      }
+    },
+    "PriorFinal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_id",
+        "result_id",
+        "outcome_identity",
+        "outcome_summary",
+        "day_progression",
+        "risks",
+        "minimum_questions",
+        "unresolved_boundaries",
+        "r0_summary",
+        "r1_summary",
+        "formulas"
+      ],
+      "properties": {
+        "run_id": {"$ref": "#/$defs/id"},
+        "result_id": {"$ref": "#/$defs/id"},
+        "outcome_identity": {
+          "enum": [
+            "conditional_r2",
+            "r2_pending_physician_review",
+            "facts_or_evidence_insufficient",
+            "reserved_opinion"
+          ]
+        },
+        "outcome_summary": {"type": "string", "minLength": 1},
+        "day_progression": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/DayItem"}
+        },
+        "risks": {"$ref": "#/$defs/string_list"},
+        "minimum_questions": {"$ref": "#/$defs/string_list"},
+        "unresolved_boundaries": {"$ref": "#/$defs/string_list"},
+        "r0_summary": {"type": "string", "minLength": 1},
+        "r1_summary": {"type": "string", "minLength": 1},
+        "comparison_to_previous": {"type": "string", "minLength": 1},
+        "formulas": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/SnapshotFormula"}
+        }
+      }
+    },
+    "CaseSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "record_type",
+        "case_id",
+        "turn_id",
+        "parent_turn_id",
+        "prior_final"
+      ],
+      "properties": {
+        "schema_version": {"const": "1.0"},
+        "record_type": {"const": "case_snapshot"},
+        "case_id": {"$ref": "#/$defs/id"},
+        "turn_id": {"$ref": "#/$defs/id"},
+        "parent_turn_id": {"$ref": "#/$defs/id"},
+        "prior_final": {"$ref": "#/$defs/PriorFinal"}
+      }
+    }
+  }
+}

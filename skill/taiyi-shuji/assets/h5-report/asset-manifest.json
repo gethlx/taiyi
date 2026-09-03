@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "visual_baseline": "2026-08-02-confirmed-jade-silk-progressive",
+  "production_assets": [
+    {
+      "path": "VisualReportShell.tsx",
+      "role": "data-driven React shell and controllable SVG primitives",
+      "reuse": "copy for every visual H5 and bind only a validated projection-bound H5ReportViewModel"
+    },
+    {
+      "path": "taiyi-visual-report.css",
+      "role": "confirmed jade-slip and silk-paper design tokens and mobile layout",
+      "reuse": "shared visual mother system; R0 may only alter bounded local accents"
+    },
+    {
+      "path": "silk-jade-surface.webp",
+      "role": "generic silk-paper and jade-rail surface",
+      "reuse": "shared background material; contains no report-specific semantics"
+    }
+  ],
+  "generate_per_report": [
+    {
+      "role": "R0 hero visual",
+      "requirements": "no text; express only confirmed topology, direction, openness, rhythm and tension"
+    },
+    {
+      "role": "formula botanical material",
+      "requirements": "no text; generate only when responsibility groups exist; SVG supplies labels and relationships"
+    }
+  ],
+  "reference_only": {
+    "root": "runs/2026-08-02/h5-layout-blueprints-20260802/prototype-progressive",
+    "note": "confirmed samples and QA evidence; do not copy sample medical themes into new reports"
+  }
+}

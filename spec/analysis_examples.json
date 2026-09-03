@@ -1,0 +1,646 @@
+{
+  "schema_version": "1.1",
+  "valid_records": [
+    {
+      "example_id": "MC-P01",
+      "authoritative": {
+        "input": {
+          "raw_text": "解释《周易》“潜龙勿用”的时位含义。",
+          "subject": {
+            "subject_id": "classic-qian-chujiu",
+            "kind": "classic",
+            "label": "潜龙勿用"
+          },
+          "confirmed_facts": [],
+          "ambiguous_facts": [],
+          "scope": [
+            "经典解释"
+          ]
+        },
+        "source_formulas": []
+      },
+      "record": {
+        "schema_version": "1.1",
+        "record_type": "committed_analysis",
+        "committed": true,
+        "run_id": "RUN-MC-P01",
+        "task_type": "classic_interpretation",
+        "input": {
+          "raw_text": "解释《周易》“潜龙勿用”的时位含义。",
+          "subject": {
+            "subject_id": "classic-qian-chujiu",
+            "kind": "classic",
+            "label": "潜龙勿用"
+          },
+          "confirmed_facts": [],
+          "ambiguous_facts": [],
+          "scope": [
+            "经典解释"
+          ]
+        },
+        "formulas": [],
+        "reasoning": {
+          "r0": {
+            "text": "示例只表示已有模型结果，不作为语义标准答案。"
+          },
+          "unresolved_conflicts": []
+        },
+        "outcome": {
+          "result_id": "RESULT-MC-P01",
+          "identity": "classic_interpretation",
+          "summary": "示例结果。",
+          "risks": [],
+          "minimum_questions": [],
+          "day_progression": []
+        },
+        "calls": [
+          {
+            "call_id": "CALL-MC-P01-01",
+            "responsibilities": [
+              "stage_0",
+              "r0"
+            ],
+            "status": "succeeded"
+          }
+        ],
+        "sources": [
+          {
+            "work_id": "T01-YI-WS",
+            "title": "周易",
+            "source_path": "kb/texts/01_周易.md",
+            "start_line": 40,
+            "end_line": 40,
+            "excerpt": "潜龙勿用"
+          }
+        ]
+      }
+    },
+    {
+      "example_id": "MC-P02",
+      "authoritative": {
+        "input": {
+          "raw_text": "桂枝三两，白芍三两，生姜三两，炙甘草二两，大枣十二枚。分析此方。",
+          "subject": {
+            "subject_id": "FORMULA-MC-P02-INPUT",
+            "kind": "formula",
+            "label": "用户输入方"
+          },
+          "confirmed_facts": [
+            "用户未提供方名"
+          ],
+          "ambiguous_facts": [],
+          "scope": [
+            "纯方剂分析"
+          ]
+        },
+        "source_formulas": [
+          {
+            "formula_id": "FORMULA-MC-P02-INPUT",
+            "role": "input",
+            "composition": [
+              {
+                "raw_text": "桂枝三两",
+                "name": "桂枝",
+                "amount": "三",
+                "unit": "两"
+              },
+              {
+                "raw_text": "白芍三两",
+                "name": "白芍",
+                "amount": "三",
+                "unit": "两"
+              },
+              {
+                "raw_text": "生姜三两",
+                "name": "生姜",
+                "amount": "三",
+                "unit": "两"
+              },
+              {
+                "raw_text": "炙甘草二两",
+                "name": "甘草",
+                "amount": "二",
+                "unit": "两",
+                "preparation": "炙"
+              },
+              {
+                "raw_text": "大枣十二枚",
+                "name": "大枣",
+                "amount": "十二",
+                "unit": "枚"
+              }
+            ]
+          }
+        ]
+      },
+      "record": {
+        "schema_version": "1.1",
+        "record_type": "committed_analysis",
+        "committed": true,
+        "run_id": "RUN-MC-P02",
+        "task_type": "formula_analysis",
+        "input": {
+          "raw_text": "桂枝三两，白芍三两，生姜三两，炙甘草二两，大枣十二枚。分析此方。",
+          "subject": {
+            "subject_id": "FORMULA-MC-P02-INPUT",
+            "kind": "formula",
+            "label": "用户输入方"
+          },
+          "confirmed_facts": [
+            "用户未提供方名"
+          ],
+          "ambiguous_facts": [],
+          "scope": [
+            "纯方剂分析"
+          ]
+        },
+        "formulas": [
+          {
+            "formula_id": "FORMULA-MC-P02-INPUT",
+            "role": "input",
+            "composition": [
+              {
+                "raw_text": "桂枝三两",
+                "name": "桂枝",
+                "amount": "三",
+                "unit": "两"
+              },
+              {
+                "raw_text": "白芍三两",
+                "name": "白芍",
+                "amount": "三",
+                "unit": "两"
+              },
+              {
+                "raw_text": "生姜三两",
+                "name": "生姜",
+                "amount": "三",
+                "unit": "两"
+              },
+              {
+                "raw_text": "炙甘草二两",
+                "name": "甘草",
+                "amount": "二",
+                "unit": "两",
+                "preparation": "炙"
+              },
+              {
+                "raw_text": "大枣十二枚",
+                "name": "大枣",
+                "amount": "十二",
+                "unit": "枚"
+              }
+            ]
+          },
+          {
+            "formula_id": "FORMULA-MC-P02-CANDIDATE",
+            "role": "candidate",
+            "name": "条件候选",
+            "composition": []
+          },
+          {
+            "formula_id": "FORMULA-MC-P02-SANDBOX",
+            "role": "sandbox",
+            "composition": []
+          }
+        ],
+        "reasoning": {
+          "r0": {
+            "text": "示例 R0。"
+          },
+          "r1": {
+            "text": "示例条件性 R1。"
+          },
+          "r2": {
+            "text": "示例条件性 R2。"
+          },
+          "red_team": {
+            "text": "无实质冲突。"
+          },
+          "unresolved_conflicts": []
+        },
+        "outcome": {
+          "result_id": "RESULT-MC-P02",
+          "identity": "conditional_r2",
+          "summary": "纯方剂条件结果。",
+          "result_formula_id": "FORMULA-MC-P02-CANDIDATE",
+          "risks": [],
+          "minimum_questions": [],
+          "day_progression": [
+            {
+              "day": 1,
+              "identity": "conditional_prediction",
+              "text": "成立前提下的 Day 1 示例。"
+            },
+            {
+              "day": 2,
+              "identity": "conditional_prediction",
+              "text": "成立前提下的 Day 2 示例。"
+            },
+            {
+              "day": 3,
+              "identity": "conditional_prediction",
+              "text": "成立前提下的 Day 3 示例。"
+            }
+          ]
+        },
+        "calls": [
+          {
+            "call_id": "CALL-MC-P02-01",
+            "responsibilities": [
+              "stage_0",
+              "r0",
+              "r1",
+              "r2"
+            ],
+            "status": "succeeded"
+          },
+          {
+            "call_id": "CALL-MC-P02-02",
+            "responsibilities": [
+              "red_team"
+            ],
+            "status": "succeeded"
+          }
+        ],
+        "sources": []
+      }
+    },
+    {
+      "example_id": "MC-P03",
+      "authoritative": {
+        "input": {
+          "raw_text": "病例甲：自述怕冷，汗出，脉缓。请辨证。",
+          "subject": {
+            "subject_id": "CASE-A",
+            "kind": "case",
+            "label": "病例甲"
+          },
+          "confirmed_facts": [
+            "自述怕冷",
+            "汗出",
+            "脉缓"
+          ],
+          "ambiguous_facts": [],
+          "scope": [
+            "实际病例"
+          ]
+        },
+        "source_formulas": [],
+        "case_context": {
+          "case_id": "CASE-A",
+          "turn_id": "CASE-A-T01"
+        }
+      },
+      "record": {
+        "schema_version": "1.1",
+        "record_type": "committed_analysis",
+        "committed": true,
+        "run_id": "RUN-MC-P03",
+        "task_type": "case_reasoning",
+        "input": {
+          "raw_text": "病例甲：自述怕冷，汗出，脉缓。请辨证。",
+          "subject": {
+            "subject_id": "CASE-A",
+            "kind": "case",
+            "label": "病例甲"
+          },
+          "confirmed_facts": [
+            "自述怕冷",
+            "汗出",
+            "脉缓"
+          ],
+          "ambiguous_facts": [],
+          "scope": [
+            "实际病例"
+          ]
+        },
+        "case_context": {
+          "case_id": "CASE-A",
+          "turn_id": "CASE-A-T01"
+        },
+        "formulas": [
+          {
+            "formula_id": "FORMULA-MC-P03-FORMAL",
+            "role": "formal_recommendation",
+            "name": "示例建议方",
+            "composition": []
+          }
+        ],
+        "reasoning": {
+          "r0": {
+            "text": "示例 R0。"
+          },
+          "r1": {
+            "text": "示例 R1。"
+          },
+          "r2": {
+            "text": "示例 R2 详细建议，待医师复核。"
+          },
+          "red_team": {
+            "text": "无实质冲突。"
+          },
+          "unresolved_conflicts": []
+        },
+        "outcome": {
+          "result_id": "RESULT-MC-P03",
+          "identity": "r2_pending_physician_review",
+          "summary": "R2 详细建议（待医师复核）。",
+          "result_formula_id": "FORMULA-MC-P03-FORMAL",
+          "risks": [],
+          "minimum_questions": [],
+          "day_progression": [
+            {
+              "day": 1,
+              "identity": "case_prediction",
+              "text": "病例预测 Day 1 示例。"
+            },
+            {
+              "day": 2,
+              "identity": "case_prediction",
+              "text": "病例预测 Day 2 示例。"
+            },
+            {
+              "day": 3,
+              "identity": "case_prediction",
+              "text": "病例预测 Day 3 示例。"
+            }
+          ]
+        },
+        "calls": [
+          {
+            "call_id": "CALL-MC-P03-01",
+            "responsibilities": [
+              "stage_0",
+              "r0",
+              "r1",
+              "r2"
+            ],
+            "status": "succeeded"
+          },
+          {
+            "call_id": "CALL-MC-P03-02",
+            "responsibilities": [
+              "red_team"
+            ],
+            "status": "succeeded"
+          }
+        ],
+        "sources": []
+      }
+    },
+    {
+      "example_id": "MC-P04",
+      "authoritative": {
+        "input": {
+          "raw_text": "继续病例甲：服后汗出较前如何不确定，精神稍好。",
+          "subject": {
+            "subject_id": "CASE-A",
+            "kind": "case",
+            "label": "病例甲复察"
+          },
+          "confirmed_facts": [
+            "精神稍好"
+          ],
+          "ambiguous_facts": [
+            "汗出变化方向未定"
+          ],
+          "scope": [
+            "同案复察"
+          ]
+        },
+        "source_formulas": [],
+        "case_context": {
+          "case_id": "CASE-A",
+          "turn_id": "CASE-A-T02",
+          "parent_turn_id": "CASE-A-T01"
+        }
+      },
+      "record": {
+        "schema_version": "1.1",
+        "record_type": "committed_analysis",
+        "committed": true,
+        "run_id": "RUN-MC-P04",
+        "task_type": "followup",
+        "input": {
+          "raw_text": "继续病例甲：服后汗出较前如何不确定，精神稍好。",
+          "subject": {
+            "subject_id": "CASE-A",
+            "kind": "case",
+            "label": "病例甲复察"
+          },
+          "confirmed_facts": [
+            "精神稍好"
+          ],
+          "ambiguous_facts": [
+            "汗出变化方向未定"
+          ],
+          "scope": [
+            "同案复察"
+          ]
+        },
+        "case_context": {
+          "case_id": "CASE-A",
+          "turn_id": "CASE-A-T02",
+          "parent_turn_id": "CASE-A-T01"
+        },
+        "formulas": [],
+        "reasoning": {
+          "r0": {
+            "text": "示例 R0。"
+          },
+          "r1": {
+            "text": "示例复察 R1。"
+          },
+          "r2": {
+            "text": "方向未定时保留条件。"
+          },
+          "red_team": {
+            "text": "汗出方向未定会影响正式建议。"
+          },
+          "stage_c": {
+            "text": "保留冲突并提出最小补问。"
+          },
+          "unresolved_conflicts": [
+            "汗出变化方向未定。"
+          ]
+        },
+        "outcome": {
+          "result_id": "RESULT-MC-P04",
+          "identity": "reserved_opinion",
+          "summary": "保留意见，未形成正式详细建议。",
+          "risks": [],
+          "minimum_questions": [
+            "汗出较前增多、减少还是不变？"
+          ],
+          "day_progression": [
+            {
+              "day": 1,
+              "identity": "followup_prediction",
+              "text": "复察预测 Day 1 示例。"
+            },
+            {
+              "day": 2,
+              "identity": "followup_prediction",
+              "text": "复察预测 Day 2 示例。"
+            },
+            {
+              "day": 3,
+              "identity": "followup_prediction",
+              "text": "复察预测 Day 3 示例。"
+            }
+          ]
+        },
+        "calls": [
+          {
+            "call_id": "CALL-MC-P04-01",
+            "responsibilities": [
+              "stage_0",
+              "r0",
+              "r1",
+              "r2"
+            ],
+            "status": "succeeded"
+          },
+          {
+            "call_id": "CALL-MC-P04-02",
+            "responsibilities": [
+              "red_team",
+              "stage_c"
+            ],
+            "status": "succeeded"
+          }
+        ],
+        "sources": []
+      }
+    }
+  ],
+  "valid_failures": [
+    {
+      "example_id": "MC-F01",
+      "record": {
+        "schema_version": "1.1",
+        "record_type": "run_failure",
+        "committed": false,
+        "run_id": "RUN-MC-F01",
+        "task_type": "case_reasoning",
+        "previous_committed_run_id": "RUN-MC-P03",
+        "error": {
+          "code": "MODEL_OUTPUT_INVALID",
+          "stage": "validation",
+          "message": "模型结果未通过提交校验。",
+          "retryable": true
+        }
+      }
+    }
+  ],
+  "mutations": [
+    {
+      "mutation_id": "MC-N01",
+      "base_id": "MC-P02",
+      "path": "/input/raw_text",
+      "value": "被改写的用户原话",
+      "expected_error_prefix": "input.snapshot_changed"
+    },
+    {
+      "mutation_id": "MC-N02",
+      "base_id": "MC-P02",
+      "path": "/input/subject/subject_id",
+      "value": "FORMULA-MC-P02-CANDIDATE",
+      "expected_error_prefix": "input.snapshot_changed"
+    },
+    {
+      "mutation_id": "MC-N03",
+      "base_id": "MC-P02",
+      "path": "/formulas/0/composition/0/raw_text",
+      "value": "桂枝四两",
+      "expected_error_prefix": "formulas.source_snapshot_changed"
+    },
+    {
+      "mutation_id": "MC-N04",
+      "base_id": "MC-P03",
+      "path": "/case_context/turn_id",
+      "value": "CASE-B-T01",
+      "expected_error_prefix": "case_context.changed"
+    },
+    {
+      "mutation_id": "MC-N05",
+      "base_id": "MC-P02",
+      "path": "/outcome/result_formula_id",
+      "value": "FORMULA-MC-P02-SANDBOX",
+      "expected_error_prefix": "outcome.result_formula_role_invalid"
+    },
+    {
+      "mutation_id": "MC-N06",
+      "base_id": "MC-P01",
+      "path": "/sources/0/work_id",
+      "value": "T02-SW-WS",
+      "expected_error_prefix": "source.0.work_path_mismatch"
+    },
+    {
+      "mutation_id": "MC-N07",
+      "base_id": "MC-P03",
+      "path": "/reasoning/unresolved_conflicts",
+      "value": [
+        "仍有实质冲突。"
+      ],
+      "expected_error_prefix": "outcome.unresolved_conflict_forbids_formal_r2"
+    },
+    {
+      "mutation_id": "MC-N08",
+      "base_id": "MC-P01",
+      "path": "/sources/0/source_path",
+      "value": "kb/texts/02_素问.md",
+      "expected_error_prefix": "source.0.work_path_mismatch"
+    },
+    {
+      "mutation_id": "MC-N09",
+      "base_id": "MC-P01",
+      "path": "/sources/0/excerpt",
+      "value": "不存在的原文短句",
+      "expected_error_prefix": "source.0.excerpt_mismatch"
+    },
+    {
+      "mutation_id": "MC-N10",
+      "base_id": "MC-P02",
+      "path": "/outcome/day_progression/0/identity",
+      "value": "case_prediction",
+      "expected_error_prefix": "outcome.day_identity_task_mismatch"
+    },
+    {
+      "mutation_id": "MC-N11",
+      "base_id": "MC-F01",
+      "path": "/outcome",
+      "value": {
+        "summary": "不应存在的半成品医学结果"
+      },
+      "expected_error_prefix": "schema.root"
+    },
+    {
+      "mutation_id": "MC-N12",
+      "base_id": "MC-P01",
+      "path": "/reasoning/r0",
+      "value": {
+        "text": "示例 R0。",
+        "handoff": "不应存在的交接"
+      },
+      "expected_error_prefix": "schema.reasoning.r0"
+    },
+    {
+      "mutation_id": "MC-N13",
+      "base_id": "MC-P01",
+      "path": "/sources/0/evidence_id",
+      "value": "EV-INTERNAL",
+      "expected_error_prefix": "schema.sources.0"
+    },
+    {
+      "mutation_id": "MC-N14",
+      "base_id": "MC-P01",
+      "path": "/outcome/evidence_ids",
+      "value": [
+        "EV-INTERNAL"
+      ],
+      "expected_error_prefix": "schema.outcome"
+    }
+  ]
+}

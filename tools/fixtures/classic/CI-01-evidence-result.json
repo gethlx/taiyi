@@ -1,0 +1,363 @@
+{
+  "schema_version": "1.0",
+  "request_id": "ER-CI-01",
+  "task_id": "RUN-CI-01",
+  "corpus_snapshot": {
+    "manifest_path": "kb/manifest.json",
+    "manifest_sha256": "18c4e8d055f211ea651c16dcdf8374cee8cad680e695dd2ecb26f3409b297194",
+    "source_root": "kb/texts",
+    "work_sha256": {
+      "T01-YI-WS": "737f4e547bf475795d2b8a180803d557b00dc6d564af5c41a8fb6d74067dc56a",
+      "T01-CT-WS": "93ae256433cbae2cde015570e16f4c8d2081dc9c768a2827f4951e757b3ff1c6",
+      "T02-SW-WS": "9949f70a3c2b3799a17cae0c422a24cb3cfcfa502b4aec487c6c21dffe0cd87f",
+      "T02-WJ": "ddd742558f14b6952a02dbfc1058e983bf6e52f091755d1e0dd5921b265c0c48",
+      "T02-LS-WS": "3b01be674b2e4add23f0eb2939abe93a639a6b92ad9a2e340da035a3cf0600a3",
+      "T02-TS-WS": "cb1e6ba8f7607fa7502ad6935e2bdd0f2812dd0599dcd880341919f7ba4110c7",
+      "T02-HT-CT": "2d9b4f91217bd569976652f477618c985b0737ca51a749751a2d0e4e5effe649",
+      "T03-NJ": "3f3e48573dad9b021750336a510d361a411c5e98c944daae97fabaa70a9f41b0",
+      "T03-LJ-WS": "6f23099a00585e7d641967db5752ea16ed4d2e1eff35b7f2245f28e88f3f03db",
+      "T03-ZB-WS": "3d3d81c8f8f2565b4ed72d8176724269c6e5c8070a778c54c7da00788e535850",
+      "T04-GL": "f52e772287e6ed8de6563e7c5b406fa2ae3a694b1f8ac45aefd4a3ab68ddd677",
+      "T05-FXJ-WS": "070590d9693329b7cf1510892935ff66c399c36f426ed6734523abab0b041ce8",
+      "T06-SN": "661f980ddad5816797fd605794db2764a1195a63dba89287490afa71302d9cd8",
+      "T06-BC": "8d91def28a4c96866dcee9e0dc2a04c5b6bbd54de0841c0c9e107c1200481139",
+      "T07-YF": "477b46601e5cd4e5143f3be19418ef34088b874a1718fb2b5bdec1241f558094",
+      "T07-YIF": "63d11702c95e879066a95e454f549202fbcdc2e9aefe45bf922c26a51883c9e2",
+      "T08-WT-JC": "9efc785375e8648a8b740cd4e3b4adba0ac77a138063b6f4f35783073c823808",
+      "T09-JY-CT": "3fcd6434bcad9caa8951115e5f21e782c5d9aa9fe60bc3d641dfa9ea315eeb34"
+    },
+    "snapshot_sha256": "5da6a06bac1739a47eeb1286d5bd665991f6df5b03212b6db91b306078a60fde"
+  },
+  "route_candidates": [
+    {
+      "card_id": "CC-T01-YI-WS",
+      "work_id": "T01-YI-WS",
+      "title": "周易",
+      "evidence_kind": "classic_original",
+      "authority_role": "main",
+      "priority": 1,
+      "candidate_basis": [
+        "target_work_id",
+        "title_or_alias",
+        "topic_hint",
+        "card_relation"
+      ],
+      "match_terms": [
+        "周易",
+        "时位"
+      ],
+      "rank": 1
+    },
+    {
+      "card_id": "CC-T02-SW-WS",
+      "work_id": "T02-SW-WS",
+      "title": "黄帝内经素问",
+      "evidence_kind": "classic_original",
+      "authority_role": "main",
+      "priority": 1,
+      "candidate_basis": [
+        "topic_hint",
+        "card_relation"
+      ],
+      "match_terms": [
+        "时位"
+      ],
+      "rank": 2
+    },
+    {
+      "card_id": "CC-T02-LS-WS",
+      "work_id": "T02-LS-WS",
+      "title": "黄帝内经灵枢",
+      "evidence_kind": "classic_original",
+      "authority_role": "main",
+      "priority": 1,
+      "candidate_basis": [
+        "topic_hint",
+        "card_relation"
+      ],
+      "match_terms": [
+        "时位"
+      ],
+      "rank": 3
+    },
+    {
+      "card_id": "CC-T03-NJ",
+      "work_id": "T03-NJ",
+      "title": "八十一难经",
+      "evidence_kind": "classic_original",
+      "authority_role": "main",
+      "priority": 1,
+      "candidate_basis": [
+        "topic_hint",
+        "card_relation"
+      ],
+      "match_terms": [
+        "时位"
+      ],
+      "rank": 4
+    },
+    {
+      "card_id": "CC-T04-GL",
+      "work_id": "T04-GL",
+      "title": "桂林古本伤寒杂病论",
+      "evidence_kind": "classic_original",
+      "authority_role": "main",
+      "priority": 1,
+      "candidate_basis": [
+        "topic_hint"
+      ],
+      "match_terms": [
+        "时位"
+      ],
+      "rank": 5
+    },
+    {
+      "card_id": "CC-T01-CT-WS",
+      "work_id": "T01-CT-WS",
+      "title": "周易参同契",
+      "evidence_kind": "classic_original",
+      "authority_role": "same_layer_reference",
+      "priority": 2,
+      "candidate_basis": [
+        "topic_hint"
+      ],
+      "match_terms": [
+        "时位"
+      ],
+      "rank": 6
+    },
+    {
+      "card_id": "CC-T02-TS-WS",
+      "work_id": "T02-TS-WS",
+      "title": "黄帝内经太素",
+      "evidence_kind": "classic_original",
+      "authority_role": "same_layer_reference",
+      "priority": 2,
+      "candidate_basis": [
+        "topic_hint"
+      ],
+      "match_terms": [
+        "时位"
+      ],
+      "rank": 7
+    },
+    {
+      "card_id": "CC-T02-WJ",
+      "work_id": "T02-WJ",
+      "title": "外经微言",
+      "evidence_kind": "classic_original",
+      "authority_role": "conditional",
+      "priority": 3,
+      "candidate_basis": [
+        "topic_hint"
+      ],
+      "match_terms": [
+        "时位"
+      ],
+      "rank": 8
+    },
+    {
+      "card_id": "CC-T03-LJ-WS",
+      "work_id": "T03-LJ-WS",
+      "title": "类经（四库全书本）",
+      "evidence_kind": "commentary_reference",
+      "authority_role": "annotation",
+      "priority": 4,
+      "candidate_basis": [
+        "topic_hint"
+      ],
+      "match_terms": [
+        "时位"
+      ],
+      "rank": 9
+    }
+  ],
+  "source_evidence": [
+    {
+      "evidence_id": "EV-T01-YI-WS-40-40-0fd350780dc3",
+      "segment_id": "T01-YI-WS-S00005",
+      "work_id": "T01-YI-WS",
+      "title": "周易 · 周易 · 周易/乾",
+      "kind": "classic_original",
+      "authority_role": "main",
+      "source_path": "kb/texts/01_周易.md",
+      "source_identity": "refs/snap/wiki/T01-YI-WS.json",
+      "locator": {
+        "heading_path": [
+          "周易",
+          "周易/乾"
+        ],
+        "anchor": "t01-yi-ws-source-001",
+        "start_line": 40,
+        "end_line": 40
+      },
+      "excerpt": "1. 初九：潜龙勿用。",
+      "body_sha256": "737f4e547bf475795d2b8a180803d557b00dc6d564af5c41a8fb6d74067dc56a",
+      "excerpt_sha256": "0fd350780dc34dfdecc796d247007bf73e09e02b37051084f5941dec2ac8a7a8",
+      "fragment_state": "complete",
+      "rechecked_from_source": true
+    },
+    {
+      "evidence_id": "EV-T01-YI-WS-63-63-3f1ea053e5fd",
+      "segment_id": "T01-YI-WS-S00015",
+      "work_id": "T01-YI-WS",
+      "title": "周易 · 周易 · 周易/乾",
+      "kind": "classic_original",
+      "authority_role": "main",
+      "source_path": "kb/texts/01_周易.md",
+      "source_identity": "refs/snap/wiki/T01-YI-WS.json",
+      "locator": {
+        "heading_path": [
+          "周易",
+          "周易/乾"
+        ],
+        "anchor": "t01-yi-ws-source-001",
+        "start_line": 63,
+        "end_line": 63
+      },
+      "excerpt": "1. 潜龙勿用，阳在下也。",
+      "body_sha256": "737f4e547bf475795d2b8a180803d557b00dc6d564af5c41a8fb6d74067dc56a",
+      "excerpt_sha256": "3f1ea053e5fdf61343f53301428651c3d04b803b13840bd087756ae95fef8244",
+      "fragment_state": "complete",
+      "rechecked_from_source": true
+    },
+    {
+      "evidence_id": "EV-T01-YI-WS-80-80-c8fe9691bb2e",
+      "segment_id": "T01-YI-WS-S00023",
+      "work_id": "T01-YI-WS",
+      "title": "周易 · 周易 · 周易/乾",
+      "kind": "classic_original",
+      "authority_role": "main",
+      "source_path": "kb/texts/01_周易.md",
+      "source_identity": "refs/snap/wiki/T01-YI-WS.json",
+      "locator": {
+        "heading_path": [
+          "周易",
+          "周易/乾"
+        ],
+        "anchor": "t01-yi-ws-source-001",
+        "start_line": 80,
+        "end_line": 80
+      },
+      "excerpt": "1. 初九曰：“潜龙，勿用。”何谓也？子曰：“龙德而隐者也。不易乎世，不成乎名，遁世无闷，不见是而无闷，乐则行之，忧则违之，确乎其不可拔，潜龙也。”",
+      "body_sha256": "737f4e547bf475795d2b8a180803d557b00dc6d564af5c41a8fb6d74067dc56a",
+      "excerpt_sha256": "c8fe9691bb2e1ada64f006655584254d17b55af2c6ab629f8fdf6b20baae9256",
+      "fragment_state": "complete",
+      "rechecked_from_source": true
+    },
+    {
+      "evidence_id": "EV-T01-YI-WS-37-38-2aeabddf4995",
+      "segment_id": "T01-YI-WS-S00004",
+      "work_id": "T01-YI-WS",
+      "title": "周易 · 周易 · 周易/乾",
+      "kind": "classic_original",
+      "authority_role": "main",
+      "source_path": "kb/texts/01_周易.md",
+      "source_identity": "refs/snap/wiki/T01-YI-WS.json",
+      "locator": {
+        "heading_path": [
+          "周易",
+          "周易/乾"
+        ],
+        "anchor": "t01-yi-ws-source-001",
+        "start_line": 37,
+        "end_line": 38
+      },
+      "excerpt": "- 易经：\n- 乾：元亨。利贞。",
+      "body_sha256": "737f4e547bf475795d2b8a180803d557b00dc6d564af5c41a8fb6d74067dc56a",
+      "excerpt_sha256": "2aeabddf4995ab09ea45da1c721131a20149a8800f010bb0ab96761199117221",
+      "fragment_state": "complete",
+      "rechecked_from_source": true
+    }
+  ],
+  "retrieval_assessments": [
+    {
+      "assessment_id": "ASSESS-ER-CI-01-01",
+      "request_id": "ER-CI-01",
+      "target_work_id": "T01-YI-WS",
+      "state": "complete",
+      "direct_evidence_ids": [
+        "EV-T01-YI-WS-40-40-0fd350780dc3",
+        "EV-T01-YI-WS-63-63-3f1ea053e5fd",
+        "EV-T01-YI-WS-80-80-c8fe9691bb2e"
+      ],
+      "related_candidate_evidence_ids": [
+        "EV-T01-YI-WS-37-38-2aeabddf4995"
+      ],
+      "variant_evidence_ids": []
+    }
+  ],
+  "variant_candidates": [],
+  "cross_work_candidates": [],
+  "retrieval_trace": [
+    {
+      "trace_id": "TRACE-001",
+      "phase": "card_route",
+      "work_ids": [
+        "T01-YI-WS",
+        "T02-SW-WS",
+        "T02-LS-WS",
+        "T03-NJ",
+        "T04-GL",
+        "T01-CT-WS",
+        "T02-TS-WS",
+        "T02-WJ",
+        "T03-LJ-WS"
+      ],
+      "segment_ids": [],
+      "detail_code": "target_work"
+    },
+    {
+      "trace_id": "TRACE-002",
+      "phase": "exact_quote_search",
+      "work_ids": [
+        "T01-YI-WS"
+      ],
+      "segment_ids": [
+        "T01-YI-WS-S00005",
+        "T01-YI-WS-S00015",
+        "T01-YI-WS-S00023"
+      ],
+      "detail_code": "exact_quote"
+    },
+    {
+      "trace_id": "TRACE-003",
+      "phase": "adjacent_expansion",
+      "work_ids": [
+        "T01-YI-WS"
+      ],
+      "segment_ids": [
+        "T01-YI-WS-S00004",
+        "T01-YI-WS-S00006",
+        "T01-YI-WS-S00014",
+        "T01-YI-WS-S00016",
+        "T01-YI-WS-S00022",
+        "T01-YI-WS-S00024"
+      ],
+      "detail_code": "same_heading_neighbor"
+    },
+    {
+      "trace_id": "TRACE-004",
+      "phase": "source_readback",
+      "work_ids": [
+        "T01-YI-WS"
+      ],
+      "segment_ids": [
+        "T01-YI-WS-S00005",
+        "T01-YI-WS-S00015",
+        "T01-YI-WS-S00023",
+        "T01-YI-WS-S00004"
+      ],
+      "detail_code": "checksum_verified"
+    },
+    {
+      "trace_id": "TRACE-005",
+      "phase": "assessment",
+      "work_ids": [
+        "T01-YI-WS"
+      ],
+      "segment_ids": [],
+      "detail_code": "state_assigned"
+    }
+  ]
+}
