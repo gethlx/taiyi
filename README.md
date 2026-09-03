@@ -16,13 +16,33 @@
 
 ## 效果示意
 
-以下图片来自同一份无方名方剂的条件性分析。纯图报告是正式文字结果的可选
-表达，不改变分析内容，也不形成第二套医学状态。
+以下示例覆盖从气化方向到证机辨析、病例病机和方药结构的关键分析链，不只展示
+方剂清单。前两页来自同一份无方名方剂的条件性分析，第三页展示脱敏病例的病因
+病机与辨证关系。纯图报告是正式文字结果的可选表达，不改变分析内容，也不形成
+第二套医学状态。
 
-<p align="center">
-  <img src="docs/images/formula-analysis-overview.png" alt="太乙枢机方剂分析总览" width="48%">
-  <img src="docs/images/formula-groups.png" alt="太乙枢机方药分组示意" width="48%">
-</p>
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <img src="docs/images/qi-transformation-r0.png" alt="太乙枢机 R0 气化分析"><br>
+      <strong>R0 · 气化分析</strong><br>一气周流、开合转枢与五行方向
+    </td>
+    <td width="50%" align="center">
+      <img src="docs/images/conditional-pattern-r1.png" alt="太乙枢机 R1 条件性证机分析"><br>
+      <strong>R1 · 条件性证机</strong><br>人体气化、病势关系与辨证边界
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <img src="docs/images/case-pattern-mechanism.png" alt="太乙枢机病例病因病机与辨证"><br>
+      <strong>病例 · 病因病机与辨证</strong><br>由本轮事实形成证机链，保留待核边界
+    </td>
+    <td width="50%" align="center">
+      <img src="docs/images/formula-groups.png" alt="太乙枢机方药结构分析"><br>
+      <strong>R2 · 方药结构</strong><br>治法方向与方内分组关系
+    </td>
+  </tr>
+</table>
 
 ## 主要功能
 

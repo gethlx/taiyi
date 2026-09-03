@@ -21,14 +21,36 @@ provenance boundary, or counterexample needs verification.
 
 ## Visual examples
 
-These images come from one conditional analysis of an unnamed formula. A
-pure-image report is an optional presentation of the committed text result. It
-does not alter the analysis or create a second medical state.
+These examples cover the critical analysis chain from qi transformation and
+pattern reasoning to case mechanism and formula structure; they are not limited
+to an ingredient list. The first two pages come from one conditional analysis
+of an unnamed formula. The third shows the cause-mechanism and pattern relations
+of a de-identified case. A pure-image report is an optional presentation of the
+committed text result. It does not alter the analysis or create a second medical
+state.
 
-<p align="center">
-  <img src="docs/images/formula-analysis-overview.png" alt="Taiyi Shuji formula analysis overview" width="48%">
-  <img src="docs/images/formula-groups.png" alt="Taiyi Shuji formula groups" width="48%">
-</p>
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <img src="docs/images/qi-transformation-r0.png" alt="Taiyi Shuji R0 qi-transformation analysis"><br>
+      <strong>R0 · Qi transformation</strong><br>Circulation, opening-closing-pivoting, and five-phase direction
+    </td>
+    <td width="50%" align="center">
+      <img src="docs/images/conditional-pattern-r1.png" alt="Taiyi Shuji R1 conditional pattern analysis"><br>
+      <strong>R1 · Conditional pattern mechanism</strong><br>Human qi transformation, disease movement, and differentiation boundaries
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <img src="docs/images/case-pattern-mechanism.png" alt="Taiyi Shuji case cause, mechanism, and pattern differentiation"><br>
+      <strong>Case · Cause, mechanism, and pattern</strong><br>A mechanism chain grounded in current facts, with unresolved boundaries retained
+    </td>
+    <td width="50%" align="center">
+      <img src="docs/images/formula-groups.png" alt="Taiyi Shuji formula structure analysis"><br>
+      <strong>R2 · Formula structure</strong><br>Treatment direction and functional group relationships
+    </td>
+  </tr>
+</table>
 
 ## Main capabilities
 

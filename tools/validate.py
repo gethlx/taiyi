@@ -84,6 +84,9 @@ REQUIRED_FILES = {
     "tools/test_skill_commit.py",
     "tools/validate.py",
     "docs/images/formula-analysis-overview.png",
+    "docs/images/qi-transformation-r0.png",
+    "docs/images/conditional-pattern-r1.png",
+    "docs/images/case-pattern-mechanism.png",
     "docs/images/formula-groups.png",
 }
 
